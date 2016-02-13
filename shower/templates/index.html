@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
-  <div class="welcome">
-    <div>Welcome to</div>
-  </div>
-  <div class="title">
-    <div> Baby Maddock's</div>
-    <div class="title_banner">(online_baby_shower)</div>
-  </div>
-  <div class="intro">
-    <div> As the parents to be live overseas</div>
-    <div> Let's celebrate their bubs to be with an online baby shower</div>
-  </div>
-<br></br>
+
+  
+
+
+{% if messages %}
+
+  {% for message in messages %}
+  <div class="alert alert-success alert-dismissible" role="alert">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<strong>Success!</strong> {{ message }}
+</div>
+  {% endfor %}
+
+{% endif %}
   <div class="row1">
     <div class="games">
       <a href="{% url 'games_weight' %}">

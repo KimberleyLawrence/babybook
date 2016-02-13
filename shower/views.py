@@ -8,6 +8,8 @@ from .forms import AdviceForm, MessageForm, GenderForm, WeightForm, DateForm, Ti
 
 from .models import Advice, Message, Gender, Weight, Date, Time
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 
 @login_required
 def index(request):
@@ -26,7 +28,9 @@ def games_gender_guess(request):
     print request.POST
     form = GenderForm(request.POST)
     print form.save()
-    return HttpResponseRedirect(reverse('games_gender'))
+
+    messages.success(request, 'Your guess is submitted, select a new game!')
+    return HttpResponseRedirect(reverse('index'))
 
 @login_required
 def games_date(request):

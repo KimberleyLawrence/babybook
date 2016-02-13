@@ -3,8 +3,8 @@
   src: url("/static/font/Smoothie Shoppe.ttf");
 }
 @font-face {
-  font-family: 'Didot';
-  src: url("/static/font/Didot.ttf");
+  font-family: 'helvetica';
+  src: url("/static/font/helvetica.ttf");
 }
 @font-face{
   font-family: 'kgalittleswag';
@@ -16,11 +16,11 @@ body{
   background-color:#ffffcc;
 }
 .header{
-  font-family: didot;
+  font-family: helvetica;
   font-size: 1em;
 }
 .login_sub{
-  font-family: didot;
+  font-family: helvetica;
   font-size: 2em;
   text-align: center;
 }
@@ -39,12 +39,30 @@ a:hover{
   border-color:#999999;
   text-align: center;
   padding: 20px;
+  width: 50%;
+  margin: auto;
 
+
+}
+.presentation:hover{
+  text-decoration: none;
+  background-color:#ffffcc;
+}
+
+.white_box_time{
+  border-radius: 10px;
+  background-color: white;
+  border: solid 3px;
+  border-color:#999999;
+  text-align: center;
+  padding: 20px;
+  width: 50%;
+  margin:auto;
 
 }
 
 #boy{
-  color:blue;
+  color:#6698ff;
 }
 .other_gifts{
   font-family: smoothie shoppe;
@@ -54,7 +72,7 @@ a:hover{
 
 .welcome, .intro{
   text-align: center;
-  font-family: didot;
+  font-family: helvetica;
   font-size: 1.2em;
   color:#737373;
   float: center;
@@ -74,6 +92,15 @@ a:hover{
   color: #b266ff;
   font-size: 2em;
 }
+
+.sub{
+  font-family: smoothie shoppe;
+  font-size: 1.5em;
+  color: #b266ff;
+
+
+}
+
 .games{
   border-radius: 10px;
   background-color: white;
@@ -104,7 +131,7 @@ a:hover{
 }
 .game_title{
   margin-top:30px;
-  font-family: didot;
+  font-family: helvetica;
   font-size: 1em;
   color: #737373;
 }
@@ -164,6 +191,7 @@ a:hover{
 .fa-shopping-bag{
   color:#6698ff;
 }
+
 .icon_large{
   font-size: 2em;
   text-align: center;
