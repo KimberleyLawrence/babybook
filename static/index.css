@@ -1,0 +1,176 @@
+@font-face {
+  font-family: 'Smoothie shoppe';
+  src: url("/static/font/Smoothie Shoppe.ttf");
+}
+@font-face {
+  font-family: 'Didot';
+  src: url("/static/font/Didot.ttf");
+}
+@font-face{
+  font-family: 'kgalittleswag';
+  src: url("/static/font/KGALittleSwag.ttf");
+}
+
+
+body{
+  background-color:#ffffcc;
+}
+.header{
+  font-family: didot;
+  font-size: 1em;
+}
+.login_sub{
+  font-family: didot;
+  font-size: 2em;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:hover{
+  text-decoration: none;
+  color:inherit;
+}
+.white_box{
+  border-radius: 10px;
+  background-color: white;
+  border: solid 3px;
+  border-color:#999999;
+  text-align: center;
+
+
+}
+
+#boy{
+  color:blue;
+}
+.other_gifts{
+  font-family: smoothie shoppe;
+  font-size: 2em;
+  color:#b266ff;
+}
+
+.welcome, .intro{
+  text-align: center;
+  font-family: didot;
+  font-size: 1.2em;
+  color:#737373;
+  float: center;
+  margin-top: 20px;
+}
+
+.title{
+  font-family: smoothie shoppe;
+  font-size: 4em;
+  text-align: center;
+  color: #b266ff;
+  margin-top: 10px;
+  letter-spacing: -3px;
+}
+.title_banner{
+  font-family: kgalittleswag;
+  color: #b266ff;
+  font-size: 2em;
+}
+.games{
+  border-radius: 10px;
+  background-color: white;
+  height: 200px;
+  width: 250px;
+  text-align: center;
+  display: inline-block;
+  border: solid 3px;
+  border-color:#999999;
+  margin: 5px;
+
+}
+.gender{
+  height: 200px;
+  width: 250px;
+  border-radius: 10px;
+  border: solid 3px;
+  border-color:#999999;
+  text-align: center;
+  margin-right:10px;
+  background-color: white;
+}
+.games .fa{
+  margin-top: 40px;
+}
+.gender .fa{
+  margin-top: 40px;
+}
+.game_title{
+  margin-top:30px;
+  font-family: didot;
+  font-size: 1em;
+  color: #737373;
+}
+
+.row1, .row2, .row3{
+  text-align: center;
+}
+.fa-balance-scale{
+  color:#6698ff;
+}
+.fa-venus{
+  color:#b266ff;
+}
+.fa-mars{
+  color: #b266ff;
+}
+.fa-calendar{
+  color:#84e184;
+}
+.fa-clock-o{
+  color:#6698ff;
+}
+.fa-comment-o{
+  color:#b266ff;
+}
+.fa-smile-o{
+  color:#84e184;
+}
+.fa-heart-o{
+  color:#6698ff;
+}
+.fa-gift{
+  color:#b266ff;
+}
+.fa-envelope-o{
+  color:#84e184;
+}
+
+.fa-heart{
+  color:#b266ff;
+}
+
+.fa-star{
+  color:#6698ff;
+}
+
+.fa-globe{
+  color:#6698ff;
+}
+
+.fa-pied-piper{
+  color:#84e184;
+}
+.fa-amazon{
+  color:#84e184;
+}
+.fa-shopping-bag{
+  color:#6698ff;
+}
+.icon_large{
+  font-size: 2em;
+  text-align: center;
+}
+.contact_details{
+  font-size: 1.5em;
+  color:#b266ff;
+  font-family: noteworthy;
+  text-align: center;
+  margin-top: 10px;
+}

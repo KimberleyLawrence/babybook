@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<body>
+  <div class="icon_large">
+    <i class="fa fa-comment-o fa-5x"></i>
+  </div>
+  <div class="title"> Advice for the Parents to Be</div>
+  <div class="welcome">
+    <div> Send a message of positive advice, funny pregnancy/parenting stories,</div>
+    <div> and things they have to look forward to as they become parents. </div>
+    <br></br>
+    <form action="{% url 'advice_new' %}" method=post>
+    {% csrf_token %}
+    <p><label for="id_text">Text:</label> <textarea cols="40" id="id_text" name="text" rows="10">
+  </textarea></p>
+  <p><label for="id_user"></label> <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden" /></p>
+    <input type=submit></form>
+    {% for advice in advice_list %}
+    <strong>{{ advice.user }}</strong> {{ advice.text }} <br></br>
+    {% endfor %}
+  </div>
+{% endblock %}

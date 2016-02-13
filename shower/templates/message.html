@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<div class="icon_large">
+    <i class="fa fa-smile-o fa-5x"></i>
+  </div>
+  <div class="title">Leave a message for Baby Maddock</div>
+  <div class="welcome">
+    <div> Leave a message for Baby Maddock</div>
+    <div> It could be a photo, a message of love, a poem,</div>
+    <div> something that Leigh and Krystal can keep and </div>
+    <div> read to baby Maddock when Bubs grows up </div>
+    <br></br>
+    <form action="{% url 'message_new' %}" method=post>
+    {% csrf_token %}
+    <label for="id_text">Text:</label> <textarea cols="40" id="id_text" name="text" rows="10">
+    </textarea>
+    <p><label for="id_user"></label>
+      <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden" />
+    <input type=submit></form>
+    {% for message in message_list %}
+    <strong>{{ message.user }}</strong> {{ message.text }} <br></br>
+    {% endfor %}
+  </div>
+{% endblock %}

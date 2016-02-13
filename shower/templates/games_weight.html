@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+  <div class="icon_large">
+    <i class="fa fa-balance-scale fa-5x"></i>
+  </div>
+  <div class="title">Guess the Weight</div>
+  <div class="welcome">
+    <div> Guess the weight of Baby Maddock at birth</div>
+    <div> Add you guess in either the kilogram and gram category or the pound and ounces</div>
+    <br></br>
+    <div class="weight">
+      <p>Kilograms</p>
+    </div>
+    <form action="{% url 'games_weight_guess' %}" method="post">
+    <input class="metric" id="kg" name="guess" value="0">
+
+<br></br>
+<div class="weight">
+  <p>Pounds & Ounces</p>
+</div>
+    <input class="imperial" id="lb" value="0">
+    <input class="imperial" id="oz" value="0">
+
+      {% csrf_token %}
+      <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden">
+      <br></br>
+      <input type=submit></form>
+    <script type="text/javascript">
+
+
+        $(function () {
+          $('.metric').on('input', function (data){
+            //console.log($('#kg').val());
+            gm=($('#kg').val())*1000;
+            //gm+=parseInt($('#gm').val());
+            oz=gm/28.34;
+
+            o = parseInt(oz % 16);
+            lb = parseInt(oz / 16);
+
+            console.log(
+              'grams = ' + gm + ' oz=' + oz
+              + ' lb=' + lb + ' o=' + o
+            );
+            $('#lb').val(lb);
+            $('#oz').val(o);
+
+          });
+          $('.imperial').on('input', function (data){
+            //console.log($('#kg').val());
+            oz=parseInt($('#lb').val())*16;
+            oz+=parseInt($('#oz').val());
+            gm=oz*28.34;
+
+            //g = parseInt(gm % 1000);
+            kg = (gm / 1000);
+            kg=Math.round( kg * 100) / 100
+
+            //$('#gm').val(g);
+            $('#kg').val(kg);
+
+            console.log(
+              'grams = ' + gm + ' oz=' + oz
+              + ' kg=' + kg
+            );
+          });
+        });
+    </script>
+  </div>
+{% endblock %}

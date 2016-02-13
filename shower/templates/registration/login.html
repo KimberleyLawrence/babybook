@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<div class="welcome">
+  <div>Welcome to</div>
+</div>
+<div class="title">
+  <div> Baby Maddock's</div>
+  <div class="title_banner">(online_baby_shower)</div>
+</div>
+<div class="intro">
+  <div> Celebrating bubs to be</div>
+  <div> with an online baby shower</div>
+</div>
+<div class="login_sub">
+  <a href="{% url 'social:begin' 'facebook' %}?next={% url 'index' %}">
+
+  
+    &nbsp;
+    Please log in to continue
+  </div>
+</a>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+  <title> Baby Maddock's Online Baby Shower </title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'bower_components/moment/min/moment.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'index.css' %}"/>
+</head>
+<body>
+  <div class="container">
+      <div class="header ">
+        <nav>
+          <ul class="nav pull-right">
+            {% if request.user.is_authenticated %}
+            <li role="presentation" ><a href="{% url 'logout' %}?next={% url 'index' %}">Hello {{ request.user }}. Logout</a></li>
+            {% else %}
+            <li role="presentation" ><!-- login_with_facebook.html START -->
+              <a href="{% url 'social:begin' 'facebook' %}?next={% url 'index' %}">
+                <div class="btn btn-primary btn-lg" >
+                  <i class="fa  fa-facebook"></i>
+                  &nbsp;
+                  login with facebook
+                </div>
+              </a>
+              <!-- login_with_facebook.html END --></li>
+            {% endif %}
+          </ul>
+        </nav>
+        <h3 class="text-muted">
+          <a href="{% url 'index' %}">
+            <i class="fa fa-home fa-2x"></i>
+            Babybook
+          </a>
+        </h3>
+      </div>
+
+  {% block content %}
+  {% endblock %}
+</body>
+</html>

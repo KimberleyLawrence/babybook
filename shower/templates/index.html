@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+  <div class="welcome">
+    <div>Welcome to</div>
+  </div>
+  <div class="title">
+    <div> Baby Maddock's</div>
+    <div class="title_banner">(online_baby_shower)</div>
+  </div>
+  <div class="intro">
+    <div> As the parents to be live overseas</div>
+    <div> Let's celebrate their bubs to be with an online baby shower</div>
+  </div>
+<br></br>
+  <div class="row1">
+    <div class="games">
+      <a href="{% url 'games_weight' %}">
+        <div class="game" id="game_weight">
+          <i class="fa fa-balance-scale fa-5x"></i>
+          <div class="game_title">Guess Baby's weight</div>
+        </div>
+      </a>
+    </div>
+    <div class="games">
+      <a href="{% url 'games_gender' %}">
+        <div class="game" id="game_gender">
+          <i class="fa fa-venus fa-5x"></i>
+          <i class="fa fa-mars fa-5x"></i>
+          <div class="game_title">Guess Baby's gender</div>
+        </div>
+      </a>
+    </div>
+    <div class="games">
+      <a href="{% url 'games_date' %}">
+        <div class="game" id="game_date">
+          <i class="fa fa-calendar fa-5x"></i>
+          <div class="game_title">Guess Baby's Birth Date</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row2">
+    <div class="games">
+      <a href="{% url 'games_time' %}">
+        <div class="game" id="game_time">
+          <i class="fa fa-clock-o fa-5x"></i>
+          <div class="game_title">Guess Baby's Birth Time</div>
+        </div>
+      </a>
+    </div>
+    <div class="games">
+      <a href="{% url 'advice' %}">
+        <div class="game" id="game_advice">
+          <i class="fa fa-comment-o fa-5x"></i>
+          <div class="game_title">Advice for the Parents to be</div>
+        </div>
+      </a>
+    </div>
+    <div class="games">
+      <a href="{% url 'message' %}">
+        <div class="game" id="game_baby_message">
+          <i class="fa fa-smile-o fa-5x"></i>
+          <div class="game_title">Leave a message for Baby Maddock</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row3">
+    <div class="games">
+      <a href="{% url 'blog' %}">
+        <div class="game" id="game_blog">
+          <i class="fa fa-heart-o fa-5x"></i>
+          <div class="game_title">Krystal and Leigh's Baby Blog</div>
+        </div>
+      </a>
+    </div>
+    <div class="games">
+      <a href="{% url 'gift' %}">
+        <div class="game" id="game_gift">
+          <i class="fa fa-gift fa-5x"></i>
+          <div class="game_title">Gift Registry</div>
+        </div>
+      </a>
+    </div>
+    <div class="games">
+      <a href="{% url 'contact' %}">
+        <div class="game" id="game_contact">
+          <i class="fa fa-envelope-o fa-5x"></i>
+          <div class="game_title">Contact</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+{% endblock %}

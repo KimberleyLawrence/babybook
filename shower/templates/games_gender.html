@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+  <div class="icon_large">
+    <i class="fa fa-venus fa-5x"></i>
+    <i class="fa fa-mars fa-5x"></i>
+  </div>
+  <div class="title">Guess the Gender</div>
+  <div class="welcome">
+    <br></br>
+    <div> Select the gender you think Baby Maddock will be. </div></div>
+  <br></br>
+  <div class="row">
+    <form action="{% url 'games_gender_guess' %}" name="boy" method="post">
+      <a href="javascript:document.boy.submit()">
+        <div class="col-md-offset-3 col-md-3 gender">
+
+
+          <i class="fa fa-mars fa-5x" id="boy"></i>
+          <div class="game_title">A baby Boy</div>
+
+          {% csrf_token %}
+          <input id="id_guess" maxlength="6" name="guess" value="boy" type="hidden">
+          <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden">
+
+      </form>
+    </div>
+  </a>
+
+  <form action="{% url 'games_gender_guess' %}" name="girl" method="post">
+    <a href="javascript:document.girl.submit()">
+      <div class="col-md-3 gender">
+
+        <form action="{% url 'games_gender_guess' %}" method="post">
+
+          <i class="fa fa-venus fa-5x" id="girl"></i>
+          <div class="game_title">A baby Girl</div>
+
+          {% csrf_token %}
+          <input id="id_guess" maxlength="6" name="guess" value="girl" type="hidden">
+          <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden">
+
+      </form>
+    </div>
+  </a>
+</div>
+
+
+
+
+
+
+
+  </div>
+{% endblock %}
