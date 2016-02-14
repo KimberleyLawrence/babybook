@@ -44,6 +44,7 @@
             {% endif %}
           </ul>
         </nav>
+        {% if request.path != "/accounts/login/" %}
         <div class="text-muted" title="Home">
           <a href="{% url 'index' %}">
             <i class="fa fa-home fa-2x"></i>
@@ -51,7 +52,7 @@
             </a>
           </div>
             <div class="sub">Online Baby Shower </div>
-
+            {% endif %}
 
       </div>
 
