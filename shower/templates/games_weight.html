@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
+
   <div class="icon_large">
     <i class="fa fa-balance-scale fa-5x"></i>
   </div>
@@ -14,7 +15,7 @@
       <p>Kilograms</p>
     </div>
     <form action="{% url 'games_weight_guess' %}" method="post">
-    <input class="metric" id="kg" name="guess" value="0">
+    <input class="metric" id="kg" name="guess" value="{{ form.guess.value }}">
 
 <br></br>
 <div class="weight">
@@ -24,10 +25,29 @@
     <input class="imperial" id="oz" value="0">
 
       {% csrf_token %}
-      <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden">
+      <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
       <br></br>
       <input type=submit class="btn btn-primary btn-lg" value="Send Your Guess"></form>
     <script type="text/javascript">
+
+    function weight(){
+      //console.log($('#kg').val());
+      gm=($('#kg').val())*1000;
+      //gm+=parseInt($('#gm').val());
+      oz=gm/28.34;
+
+      o = parseInt(oz % 16);
+      lb = parseInt(oz / 16);
+
+      console.log(
+        'grams = ' + gm + ' oz=' + oz
+        + ' lb=' + lb + ' o=' + o
+      );
+      $('#lb').val(lb);
+      $('#oz').val(o);
+
+    }
+    weight();
 
 
         $(function () {

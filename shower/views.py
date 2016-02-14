@@ -13,8 +13,16 @@ from django.contrib import messages
 
 @login_required
 def index(request):
-    user_gender_guess = Gender.objects.get(user = request.user)
-    return render(request,'index.html',{ 'user_gender_guess': user_gender_guess})
+    user_gender_guess = Gender.objects.filter(user = request.user).first()
+    user_weight_guess = Weight.objects.filter(user = request.user).first()
+    user_date_guess = Date.objects.filter(user = request.user).first()
+    user_time_guess = Time.objects.filter(user = request.user).first()
+    return render(request,'index.html',{
+    'user_gender_guess': user_gender_guess,
+    'user_weight_guess': user_weight_guess,
+    'user_date_guess': user_date_guess,
+    'user_time_guess': user_time_guess
+    })
 
 @login_required
 def games_gender(request):
@@ -27,7 +35,8 @@ def games_gender(request):
 def games_gender_guess(request):
     print "gender_guess"
     print request.POST
-    form = GenderForm(request.POST)
+    gender = Gender.objects.filter(user = request.user).first()
+    form = GenderForm(request.POST, instance = gender)
     if form.is_valid():
         print form.save()
         messages.success(request, 'Your gender guess was sent, select a new game!')
@@ -50,7 +59,8 @@ def games_date(request):
 def games_date_guess(request):
     print "date_guess"
     print request.POST
-    form = DateForm(request.POST)
+    date = Date.objects.filter(user = request.user).first()
+    form = DateForm(request.POST, instance = date)
     print form.save()
     messages.success(request, 'Your date guess was sent, select a new game!')
     return HttpResponseRedirect(reverse('index'))
@@ -58,15 +68,18 @@ def games_date_guess(request):
 @login_required
 def games_weight(request):
     print "weight"
-    form = WeightForm()
+    weight = Weight.objects.filter(user = request.user).first()
+    form = WeightForm(instance = weight)
     return render(request,'games_weight.html',
+
     {'form': form})
 
 @login_required
 def games_weight_guess(request):
     print "weight_guess"
     print request.POST
-    form = WeightForm(request.POST)
+    weight = Weight.objects.filter(user = request.user).first()
+    form = WeightForm(request.POST, instance = weight)
     print form.save()
     messages.success(request, 'Your weight guess was sent, select a new game!')
     return HttpResponseRedirect(reverse('index'))
@@ -74,7 +87,8 @@ def games_weight_guess(request):
 @login_required
 def games_time(request):
     print "time"
-    form = TimeForm()
+    time = Time.objects.filter(user = request.user).first()
+    form = TimeForm(instance = time)
     return render(request,'games_time.html',
     {'form': form})
 
@@ -82,7 +96,8 @@ def games_time(request):
 def games_time_guess(request):
     print "time_guess"
     print request.POST
-    form = TimeForm(request.POST)
+    time = Time.objects.filter(user = request.user).first()
+    form = TimeForm(request.POST, instance = time)
     print form.save()
     messages.success(request, 'Your birth time guess was sent, select a new game!')
     return HttpResponseRedirect(reverse('index'))

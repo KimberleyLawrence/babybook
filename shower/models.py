@@ -38,7 +38,7 @@ class Weight(models.Model):
 class Date(models.Model):
     guess = models.CharField(max_length=100)
 
-    user = models.ForeignKey(User )
+    user = models.ForeignKey(User, unique=True)
 
     def __str__(self):
         return self.guess

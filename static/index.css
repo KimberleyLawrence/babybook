@@ -97,6 +97,7 @@ a:hover{
   margin-top: 10px;
   letter-spacing: -3px;
 }
+
 .purple{
   color: #b266ff;
 }
@@ -240,4 +241,12 @@ textarea{
   font-family: noteworthy;
   text-align: center;
   margin-top: 10px;
+}
+.guess{
+  font-family: helvetica;
+  font-size: 1em;
+}
+
+.already_guessed{
+  background-color: #e6ffe6;
 }

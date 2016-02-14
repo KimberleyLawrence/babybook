@@ -15,40 +15,56 @@
   {% endfor %}
 
 {% endif %}
-{{ user_gender_guess}}
+
+
+
+
+
   <div class="row1">
-    <div class="games">
+    <div class="games {% if user_weight_guess %}already_guessed{% endif %}">
       <a href="{% url 'games_weight' %}">
         <div class="game" id="game_weight">
           <i class="fa fa-balance-scale fa-5x"></i>
           <div class="game_title">Guess Baby's weight</div>
+          {% if user_weight_guess %}
+          <div class="guess blue"> Your guess: {{ user_weight_guess.guess}}</div>
+          {% endif %}
         </div>
       </a>
     </div>
-    <div class="games">
+    <div class="games {% if user_gender_guess %}already_guessed{% endif %}">
       <a href="{% url 'games_gender' %}">
         <div class="game" id="game_gender">
           <i class="fa fa-venus fa-5x"></i>
           <i class="fa fa-mars fa-5x"></i>
           <div class="game_title">Guess Baby's gender</div>
+          {% if user_gender_guess %}
+          <div class="guess purple">Your guess: {{ user_gender_guess.guess }}</div>
+          {% endif %}
         </div>
       </a>
     </div>
-    <div class="games">
+    <div class="games {% if user_date_guess %}already_guessed{% endif %}">
       <a href="{% url 'games_date' %}">
         <div class="game" id="game_date">
           <i class="fa fa-calendar fa-5x"></i>
           <div class="game_title">Guess Baby's Birth Date</div>
+          {% if user_date_guess %}
+          <div class="guess green">Your guess: {{ user_date_guess.guess }}</div>
+          {% endif %}
         </div>
       </a>
     </div>
   </div>
   <div class="row2">
-    <div class="games">
+    <div class="games {% if user_time_guess %}already_guessed{% endif %}">
       <a href="{% url 'games_time' %}">
         <div class="game" id="game_time">
           <i class="fa fa-clock-o fa-5x"></i>
           <div class="game_title">Guess Baby's Birth Time</div>
+          {% if user_time_guess %}
+          <div class="guess blue">Your guess: {{ user_time_guess.guess }}</div>
+          {% endif %}
         </div>
       </a>
     </div>

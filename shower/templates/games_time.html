@@ -37,12 +37,12 @@
             }
         </script>
       <form action="{% url 'games_time_guess' %}" method="post" onSubmit='return date_math()'>
-        <input  id="id_guess" name="guess" value="0" type="hidden">
+        <input  id="id_guess" name="guess" value="{{ form.guess.value }}" type="hidden">
 
 
 
           {% csrf_token %}
-          <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden">
+          <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
         <input type=submit id="date_submit" class="btn btn-primary btn-lg" value="Send Your Guess">
       </form>
   </div>
