@@ -26,9 +26,9 @@
         <div class="game" id="game_weight">
           <i class="fa fa-balance-scale fa-5x"></i>
           <div class="game_title">Guess Baby's weight</div>
-          {% if user_weight_guess %}
-          <div class="guess blue"> Your guess: {{ user_weight_guess.guess}}</div>
-          {% endif %}
+
+          <div class="guess blue">{% if user_weight_guess %} Your guess: {{ user_weight_guess.guess}}  {% endif %}&nbsp;</div>
+
         </div>
       </a>
     </div>
@@ -38,9 +38,9 @@
           <i class="fa fa-venus fa-5x"></i>
           <i class="fa fa-mars fa-5x"></i>
           <div class="game_title">Guess Baby's gender</div>
-          {% if user_gender_guess %}
-          <div class="guess purple">Your guess: {{ user_gender_guess.guess }}</div>
-          {% endif %}
+
+          <div class="guess purple">{% if user_gender_guess %}Your guess: {{ user_gender_guess.guess }}{% endif %}&nbsp;</div>
+
         </div>
       </a>
     </div>
@@ -49,22 +49,22 @@
         <div class="game" id="game_date">
           <i class="fa fa-calendar fa-5x"></i>
           <div class="game_title">Guess Baby's Birth Date</div>
-          {% if user_date_guess %}
-          <div class="guess green">Your guess: {{ user_date_guess.guess }}</div>
-          {% endif %}
+        
+          <div class="guess green">{% if user_date_guess %}Your guess: {{ user_date_guess.guess }}{% endif %}&nbsp;</div>
+
         </div>
       </a>
     </div>
   </div>
   <div class="row2">
-    <div class="games {% if user_time_guess %}already_guessed{% endif %}">
+    <div class="games {% if user_gender_guess %}already_guessed{% endif %}">
       <a href="{% url 'games_time' %}">
         <div class="game" id="game_time">
           <i class="fa fa-clock-o fa-5x"></i>
           <div class="game_title">Guess Baby's Birth Time</div>
-          {% if user_time_guess %}
-          <div class="guess blue">Your guess: {{ user_time_guess.guess }}</div>
-          {% endif %}
+
+          <div class="guess blue">{% if user_time_guess %}Your guess: {{ user_time_guess.guess }}{% endif %}&nbsp;</div>
+
         </div>
       </a>
     </div>
@@ -73,6 +73,7 @@
         <div class="game" id="game_advice">
           <i class="fa fa-comment-o fa-5x"></i>
           <div class="game_title">Advice for the Parents to be</div>
+            <div class="guess blue">&nbsp;</div>
         </div>
       </a>
     </div>
@@ -81,6 +82,7 @@
         <div class="game" id="game_baby_message">
           <i class="fa fa-smile-o fa-5x"></i>
           <div class="game_title">Leave a message for Baby Maddock</div>
+            <div class="guess blue"> &nbsp;</div>
         </div>
       </a>
     </div>
@@ -91,6 +93,7 @@
         <div class="game" id="game_blog">
           <i class="fa fa-heart-o fa-5x"></i>
           <div class="game_title">Krystal and Leigh's Baby Blog</div>
+          <div class="guess blue">&nbsp;</div>
         </div>
       </a>
     </div>
@@ -99,6 +102,7 @@
         <div class="game" id="game_gift">
           <i class="fa fa-gift fa-5x"></i>
           <div class="game_title">Gift Registry</div>
+          <div class="guess blue">&nbsp;</div>
         </div>
       </a>
     </div>
@@ -107,6 +111,7 @@
         <div class="game" id="game_contact">
           <i class="fa fa-envelope-o fa-5x"></i>
           <div class="game_title">Contact</div>
+          <div class="guess blue">&nbsp;</div>
         </div>
       </a>
     </div>

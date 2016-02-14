@@ -25,13 +25,14 @@
                 $('#datetimepicker12').datetimepicker({
                     inline: true,
                     sideBySide: true,
-                    format: 'LT'
+                    format: 'HH:mm',
+
                 });$('#date_submit').click(function (data){
                   console.log(data)
                 })
             });
             function date_math(){
-              d=$('#datetimepicker12').data().DateTimePicker.date()._d;
+              d=$('#datetimepicker12').data().date;
               $('#id_guess').val(d);
               return true;
             }

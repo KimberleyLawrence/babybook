@@ -10,43 +10,47 @@
     <br></br>
     <div> Click on the gender you think Bubs will be, </div>
     <div> once you click the gender, your guess will be sent. </div>
-    <div> Remember, you only get one guess</div>
   </div>
   <br>
 
-    <div class="row">
-      {{ form.errors }}
+  <div class="row">
+
+    <div class="col-md-offset-3 col-md-3" style="text-align: right">
       <form action="{% url 'games_gender_guess' %}" name="boy" method="post">
         <a href="javascript:document.boy.submit()">
-          <div class="col-md-offset-3 col-md-3 gender">
+          <div class="guessbox">
 
 
-          <i class="fa fa-mars fa-5x" id="boy"></i>
-          <div class="game_title">A baby Boy</div>
+            <i class="fa fa-mars fa-5x" id="boy"></i>
+            <div class="game_title">A baby Boy</div>
 
-          {% csrf_token %}
-          <input id="id_guess" maxlength="6" name="guess" value="boy" type="hidden">
-          <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="boy" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
 
-      </form>
+
+        </div>
+      </a>
+    </form>
     </div>
-    </a>
+    <div class="col-md-3" style="text-align: left">
+      <form action="{% url 'games_gender_guess' %}" name="girl" method="post">
+        <a href="javascript:document.girl.submit()">
+          <div class="guessbox">
 
-  <form action="{% url 'games_gender_guess' %}" name="girl" method="post">
-    <a href="javascript:document.girl.submit()">
-      <div class="col-md-3 gender">
+
+            <i class="fa fa-venus fa-5x" id="girl"></i>
+            <div class="game_title">A baby Girl</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="girl" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
 
 
-          <i class="fa fa-venus fa-5x" id="girl"></i>
-          <div class="game_title">A baby Girl</div>
-
-          {% csrf_token %}
-          <input id="id_guess" maxlength="6" name="guess" value="girl" type="hidden">
-          <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
-
-      </form>
+        </div>
+      </a>
+    </form>
     </div>
-  </a>
 
   </div>
 

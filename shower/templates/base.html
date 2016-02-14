@@ -18,6 +18,13 @@
       <div class="header ">
         <nav>
           <ul class="nav pull-right">
+            {% if request.user.is_staff %}
+            <li.disable:hover role="presentation" >
+              <a href="{% url 'admin:index' %}" class="text-muted" title="Logout">Admin
+                <i class="fa fa-pied-piper-alt fa-2x"></i>
+              </a>
+            </li.disable:hover>
+            {% endif %}
             {% if request.user.is_authenticated %}
           <li.disable:hover role="presentation" >
             <a href="{% url 'logout' %}?next={% url 'index' %}" class="text-muted" title="Logout">Hello {{ request.user.first_name }}!

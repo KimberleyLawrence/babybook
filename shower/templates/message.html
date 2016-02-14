@@ -11,6 +11,17 @@
     <div> something sweet that Leigh and Krystal can keep and </div>
     <div> read to Bubs as they grow up. </div>
     <br></br>
+    {% if form.errors %}
+
+
+      <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>There was a problem with your message.</strong>
+    </div>
+
+
+    {% endif %}
+
     <form action="{% url 'message_new' %}" method=post>
     {% csrf_token %}
     <label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">

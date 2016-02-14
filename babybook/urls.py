@@ -18,11 +18,11 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^shower/', include('shower.urls')),
-    url(r'^accounts/login/$', auth_views.login, name='login'),
-    url(r'^accounts/logout/$', auth_views.logout, name='logout'),
-    url(r'^accounts/profile/$', include('shower.urls')),
+    url(r'^accounts/login/', auth_views.login, name='login'),
+    url(r'^accounts/logout/', auth_views.logout, name='logout'),
+    url(r'^accounts/profile/', include('shower.urls')),
     url('',include ('social.apps.django_app.urls', namespace='social')),
     url(r'^$', include('shower.urls')),
 ]

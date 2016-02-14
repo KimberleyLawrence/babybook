@@ -1,10 +1,7 @@
 from django.forms import ModelForm
-from .models import Advice
-from .models import Message
-from .models import Gender
-from .models import Weight
-from .models import Date
-from .models import Time
+from .models import Advice, Message, Gender, Weight, Date, Time
+
+
 class AdviceForm(ModelForm):
     class Meta:
         model =  Advice

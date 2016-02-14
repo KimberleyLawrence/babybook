@@ -11,18 +11,16 @@
     <div> Type your guess of bubs birth weight in either </div>
     <div>Kilograms (eg. 3.34) or in Pounds and Ounces</div>
     <br></br>
-    <div class="weight">
-      <p>Kilograms</p>
-    </div>
+
+
     <form action="{% url 'games_weight_guess' %}" method="post">
-    <input class="metric" id="kg" name="guess" value="{{ form.guess.value }}">
+    <input class="input-lg metric" id="kg" name="guess" value="{{ form.guess.value }}" maxlength="4" > <strong>kg</strong>
 
 <br></br>
-<div class="weight">
-  <p>Pounds & Ounces</p>
-</div>
-    <input class="imperial" id="lb" value="0">
-    <input class="imperial" id="oz" value="0">
+
+
+    <input class="imperial input-lg" id="lb" value="0" maxlength=2> <strong>lb</strong>
+    <input class="imperial input-lg" id="oz" value="0" maxlength=2> oz
 
       {% csrf_token %}
       <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">

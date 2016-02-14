@@ -9,6 +9,7 @@
     <div> Select the date you think baby Maddock will enter the world</div>
     <div> And send your guess. </div>
     <br></br>
+    {{ form.errors }}
   <div class="white_box">
     <div style="overflow:hidden;">
     <div class="form-group">
@@ -24,15 +25,18 @@
             c = $('#datetimepicker12').datetimepicker({
                 inline: true,
                 sideBySide: true,
-                format: 'LD'
+                format: 'YYYY-MM-DD',
+                defaultDate: '2016-07-30'
+
             });
             $('#date_submit').click(function (data){
               console.log(data)
             })
         });
         function date_math(){
-          d=$('#datetimepicker12').data().DateTimePicker.date()._d;
+          d=$('#datetimepicker12').data().date;
           $('#id_guess').val(d);
+
           return true;
         }
     </script>

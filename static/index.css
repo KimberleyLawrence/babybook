@@ -1,3 +1,6 @@
+/* USE THIS FILE */
+
+
 @font-face {
   font-family: 'Smoothie shoppe';
   src: url("/static/font/Smoothie Shoppe.ttf");
@@ -25,7 +28,7 @@ body{
   font-size: 2em;
   text-align: center;
 }
-.alert{
+.alert-success{
   height:50%;
   width: 50%;
   text-align: center;
@@ -119,11 +122,7 @@ textarea{
   font-family: kgalittleswag;
   font-size: 2em;
 }
-.gender_center{
-  text-align: center;
-  border: solid 10px;
 
-}
 
 .sub_title{
   font-family: smoothie shoppe;
@@ -151,16 +150,7 @@ textarea{
   margin: 5px;
 
 }
-.gender{
-  height: 200px;
-  width: 250px;
-  border-radius: 10px;
-  border: solid 3px;
-  border-color:#999999;
-  text-align: center;
-  margin-right:10px;
-  background-color: white;
-}
+
 .games .fa{
   margin-top: 40px;
 }
@@ -247,6 +237,27 @@ textarea{
   font-size: 1em;
 }
 
-.already_guessed{
-  background-color: #e6ffe6;
+.guessbox {
+  padding-top: 25px;
+  border-radius: 10px;
+  background-color: white;
+  height: 200px;
+  width: 250px;
+  text-align: center;
+  display: inline-block;
+  border: solid 3px;
+  border-color:#999999;
+  margin-left: -10px;
 }
+
+.imperial{
+  width:60px;
+  text-align: right;
+}
+.metric{
+  width:80px;
+  text-align: right;
+}
+/*.already_guessed{
+  background-color: #f2f2f2;
+}*/
