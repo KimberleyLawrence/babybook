@@ -95,7 +95,7 @@ a:hover{
 
 .title{
   font-family: smoothie shoppe;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
   margin-top: 10px;
   letter-spacing: -3px;
@@ -160,7 +160,7 @@ textarea{
 }
 .col-padding{
   padding-top:5px;
-  padding-bottom:20px;
+  padding-bottom:10px;
   margin:0;
 }
 .games .fa{
@@ -233,7 +233,7 @@ textarea{
 .icon_large{
   font-size: 2em;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .contact_details{
   font-size: 1.5em;

@@ -9,8 +9,7 @@
   <div class="welcome">
     <div> Send a message of positive advice, funny pregnancy/parenting stories,</div>
     <div> and things the parents to be have to look forward to. </div>
-    <br></br>
-    
+  &nbsp;
     <form action="{% url 'advice_new' %}" method=post>
     {% csrf_token %}
     <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
