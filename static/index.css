@@ -19,10 +19,20 @@ body{
   font-family: helvetica;
   font-size: 1em;
 }
+
 .login_sub{
   font-family: helvetica;
   font-size: 2em;
   text-align: center;
+}
+.alert{
+  height:50%;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  background-color:#84e184;
+  opacity: 0.6;
+  color:black;
 }
 a{
   text-decoration: none;
@@ -44,10 +54,11 @@ a:hover{
 
 
 }
-.presentation:hover{
-  text-decoration: none;
-  background-color:#ffffcc;
+.btn-primary{
+  background-color:#6698ff;
 }
+
+
 
 .white_box_time{
   border-radius: 10px;
@@ -83,22 +94,48 @@ a:hover{
   font-family: smoothie shoppe;
   font-size: 4em;
   text-align: center;
-  color: #b266ff;
   margin-top: 10px;
   letter-spacing: -3px;
 }
+.purple{
+  color: #b266ff;
+}
+.blue{
+  color:#6698ff;
+}
+.green{
+  color:#84e184;
+}
+input{
+  border-radius: 10px;
+  border: solid 2px;
+}
+textarea{
+  border-radius: 10px;
+  border: solid 2px;
+}
 .title_banner{
   font-family: kgalittleswag;
-  color: #b266ff;
   font-size: 2em;
+}
+.gender_center{
+  text-align: center;
+  border: solid 10px;
+
+}
+
+.sub_title{
+  font-family: smoothie shoppe;
+  font-size: 2em;
+  text-align: center;
+  letter-spacing: -3px;
 }
 
 .sub{
-  font-family: smoothie shoppe;
-  font-size: 1.5em;
-  color: #b266ff;
-
-
+  font-family: helvetica;
+  font-size: 1em;
+  text-align: center;
+  color: #999999;
 }
 
 .games{
@@ -195,6 +232,7 @@ a:hover{
 .icon_large{
   font-size: 2em;
   text-align: center;
+  margin-top: 20px;
 }
 .contact_details{
   font-size: 1.5em;

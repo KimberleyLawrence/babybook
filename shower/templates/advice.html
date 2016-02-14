@@ -5,19 +5,24 @@
   <div class="icon_large">
     <i class="fa fa-comment-o fa-5x"></i>
   </div>
-  <div class="title"> Advice for the Parents to Be</div>
+  <div class="title blue"> Advice for the Parents to Be</div>
   <div class="welcome">
     <div> Send a message of positive advice, funny pregnancy/parenting stories,</div>
-    <div> and things they have to look forward to as they become parents. </div>
+    <div> and things the parents to be have to look forward to. </div>
     <br></br>
+    {{ form.errors }}
     <form action="{% url 'advice_new' %}" method=post>
     {% csrf_token %}
-    <p><label for="id_text">Text:</label> <textarea cols="40" id="id_text" name="text" rows="10">
+    <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
   </textarea></p>
-  <p><label for="id_user"></label> <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden" /></p>
-    <input type=submit></form>
+  <p><label for="id_user"></label> <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
+    <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice"></form>
+    <br>
     {% for advice in advice_list %}
-    <strong>{{ advice.user }}</strong> {{ advice.text }} <br></br>
+    <strong>{{ advice.user.first_name }} {{ advice.user.last_name }}:</strong>
+    {{ advice.text }}
+    <br></br>
+
     {% endfor %}
   </div>
 {% endblock %}

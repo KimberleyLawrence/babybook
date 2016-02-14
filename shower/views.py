@@ -13,7 +13,8 @@ from django.contrib import messages
 
 @login_required
 def index(request):
-    return render(request,'index.html',{})
+    user_gender_guess = Gender.objects.get(user = request.user)
+    return render(request,'index.html',{ 'user_gender_guess': user_gender_guess})
 
 @login_required
 def games_gender(request):
@@ -27,10 +28,16 @@ def games_gender_guess(request):
     print "gender_guess"
     print request.POST
     form = GenderForm(request.POST)
-    print form.save()
+    if form.is_valid():
+        print form.save()
+        messages.success(request, 'Your gender guess was sent, select a new game!')
+        return HttpResponseRedirect(reverse('index'))
+    return render(request,'games_gender.html',
+    {'form': form
+    })
 
-    messages.success(request, 'Your guess is submitted, select a new game!')
-    return HttpResponseRedirect(reverse('index'))
+
+
 
 @login_required
 def games_date(request):
@@ -45,7 +52,8 @@ def games_date_guess(request):
     print request.POST
     form = DateForm(request.POST)
     print form.save()
-    return HttpResponseRedirect(reverse('games_date'))
+    messages.success(request, 'Your date guess was sent, select a new game!')
+    return HttpResponseRedirect(reverse('index'))
 
 @login_required
 def games_weight(request):
@@ -60,7 +68,8 @@ def games_weight_guess(request):
     print request.POST
     form = WeightForm(request.POST)
     print form.save()
-    return HttpResponseRedirect(reverse('games_weight'))
+    messages.success(request, 'Your weight guess was sent, select a new game!')
+    return HttpResponseRedirect(reverse('index'))
 
 @login_required
 def games_time(request):
@@ -75,7 +84,8 @@ def games_time_guess(request):
     print request.POST
     form = TimeForm(request.POST)
     print form.save()
-    return HttpResponseRedirect(reverse('games_time'))
+    messages.success(request, 'Your birth time guess was sent, select a new game!')
+    return HttpResponseRedirect(reverse('index'))
 
 @login_required
 def advice(request):
@@ -91,8 +101,13 @@ def advice_new(request):
     print "advice_new"
     print request.POST
     form = AdviceForm(request.POST)
-    print form.save()
-    return HttpResponseRedirect(reverse('advice'))
+    if form.is_valid():
+        print form.save()
+        messages.success(request, 'Your advice was sent, select a new game!')
+        return HttpResponseRedirect(reverse('index'))
+    return render(request,'advice.html',
+    {'form': form
+    })
 
 @login_required
 def blog(request):
@@ -121,4 +136,5 @@ def message_new(request):
     print request.POST
     form = MessageForm(request.POST)
     print form.save()
-    return HttpResponseRedirect(reverse('message'))
+    messages.success(request, 'Your advice was sent, select a new game!')
+    return HttpResponseRedirect(reverse('index'))

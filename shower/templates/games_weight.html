@@ -4,10 +4,11 @@
   <div class="icon_large">
     <i class="fa fa-balance-scale fa-5x"></i>
   </div>
-  <div class="title">Guess the Weight</div>
+  <div class="title green">Guess the Weight</div>
   <div class="welcome">
-    <div> Guess the weight of Baby Maddock at birth</div>
-    <div> Add you guess in either the kilogram and gram category or the pound and ounces</div>
+    <br>
+    <div> Type your guess of bubs birth weight in either </div>
+    <div>Kilograms (eg. 3.34) or in Pounds and Ounces</div>
     <br></br>
     <div class="weight">
       <p>Kilograms</p>
@@ -25,7 +26,7 @@
       {% csrf_token %}
       <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden">
       <br></br>
-      <input type=submit class="btn btn-primary btn-lg"></form>
+      <input type=submit class="btn btn-primary btn-lg" value="Send Your Guess"></form>
     <script type="text/javascript">
 
 

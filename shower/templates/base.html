@@ -19,13 +19,13 @@
         <nav>
           <ul class="nav pull-right">
             {% if request.user.is_authenticated %}
-          <li role="presentation" >
-            <a href="{% url 'logout' %}?next={% url 'index' %}" class="text-muted" title="Logout">Hello {{ request.user }}.
+          <li.disable:hover role="presentation" >
+            <a href="{% url 'logout' %}?next={% url 'index' %}" class="text-muted" title="Logout">Hello {{ request.user.first_name }}!
               <i class="fa fa-sign-out fa-2x"></i>
             </a>
-          </li>
+          </li.disable:hover>
             {% else %}
-            <li role="presentation" ><!-- login_with_facebook.html START -->
+            <li.disable:hover role="presentation" ><!-- login_with_facebook.html START -->
               <a href="{% url 'social:begin' 'facebook' %}?next={% url 'index' %}">
                 <div class="btn btn-primary btn-lg" >
                   <i class="fa  fa-facebook"></i>
@@ -40,7 +40,7 @@
         <h3 class="text-muted" title="Home">
           <a href="{% url 'index' %}">
             <i class="fa fa-home fa-2x"></i>
-             <span class=sub>Baby Maddock's Online Baby Shower </span>
+            <span class="sub_title purple">Baby Maddock's</span> <span class="sub">Online Baby Shower </span>
           </a>
         </h3>
       </div>

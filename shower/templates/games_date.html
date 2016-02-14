@@ -4,10 +4,10 @@
   <div class="icon_large">
     <i class="fa fa-calendar fa-5x"></i>
   </div>
-  <div class="title">Guess the Date Baby Maddock will be Born</div>
+  <div class="title purple">Guess the Date Baby Maddock will be Born</div>
   <div class="welcome">
     <div> Select the date you think baby Maddock will enter the world</div>
-    <div> And click submit </div>
+    <div> And send your guess. </div>
     <br></br>
   <div class="white_box">
     <div style="overflow:hidden;">
@@ -43,7 +43,7 @@
 
       {% csrf_token %}
       <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden">
-    <input type=submit id="date_submit"></form>
+    <input type=submit id="date_submit" class="btn btn-primary btn-lg" value="Send Your Guess"></form>
   </div>
   </div>
 </div>

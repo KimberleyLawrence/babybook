@@ -4,12 +4,11 @@
   <div class="icon_large">
     <i class="fa fa-clock-o fa-5x"></i>
   </div>
-  <div class="title">Guess the Time Baby Maddock will be Born</div>
+  <div class="title green">Guess the Time Baby Maddock will be Born</div>
   <div class="welcome">
-    <div> Guess the time Baby Maddock with come into the world!</div>
-    <div> As Baby Maddock will be born in the states</div>
-    <div> the time will be based on the time in the USA </div>
-    <div> that Baby Maddock enters the world </div>
+    <div>Use the arrows to guess what time </div>
+    <div>Baby Maddock with come into the world.</div>
+    <div> </div>
     <br> </br>
   <div class="white_box_time"
       <div class="col-md-offset-2 col-md-8">
@@ -44,7 +43,7 @@
 
           {% csrf_token %}
           <input id="id_user" maxlength="50" name="user" value="{{ request.user }}" type="hidden">
-        <input type=submit id="date_submit">
+        <input type=submit id="date_submit" class="btn btn-primary btn-lg" value="Send Your Guess">
       </form>
   </div>
   </div>
