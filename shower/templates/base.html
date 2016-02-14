@@ -3,7 +3,7 @@
 {% load staticfiles %}
 <head>
   <title> Baby Maddock's Online Baby Shower </title>
-
+  <meta name="viewport" content="width=device-width"></meta>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'bower_components/moment/min/moment.min.js' %}"></script>
@@ -44,12 +44,15 @@
             {% endif %}
           </ul>
         </nav>
-        <h3 class="text-muted" title="Home">
+        <div class="text-muted" title="Home">
           <a href="{% url 'index' %}">
             <i class="fa fa-home fa-2x"></i>
-            <span class="sub_title purple">Baby Maddock's</span> <span class="sub">Online Baby Shower </span>
-          </a>
-        </h3>
+            <div class="sub_title purple">Baby Maddock's </div>
+            </a>
+          </div>
+            <div class="sub">Online Baby Shower </div>
+
+
       </div>
 
   {% block content %}

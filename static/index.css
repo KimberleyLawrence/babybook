@@ -126,14 +126,15 @@ textarea{
 
 .sub_title{
   font-family: smoothie shoppe;
-  font-size: 2em;
+  font-size: 4em;
   text-align: center;
   letter-spacing: -3px;
+
 }
 
 .sub{
   font-family: helvetica;
-  font-size: 1em;
+  font-size: 1.5em;
   text-align: center;
   color: #999999;
 }
@@ -142,17 +143,28 @@ textarea{
   border-radius: 10px;
   background-color: white;
   height: 200px;
-  width: 250px;
+  width: 95%;
+
+  min-width: 150px;
   text-align: center;
   display: inline-block;
   border: solid 3px;
   border-color:#999999;
-  margin: 5px;
+  margin:0;
+
 
 }
 
+.col-centered{
+  text-align: center;
+}
+.col-padding{
+  padding-top:5px;
+  padding-bottom:20px;
+  margin:0;
+}
 .games .fa{
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .gender .fa{
   margin-top: 40px;
@@ -164,9 +176,7 @@ textarea{
   color: #737373;
 }
 
-.row1, .row2, .row3{
-  text-align: center;
-}
+
 .fa-balance-scale{
   color:#6698ff;
 }
@@ -257,6 +267,33 @@ textarea{
 .metric{
   width:80px;
   text-align: right;
+}
+@media (max-width:780px){
+  .sub_title, .sub{
+    display:inline-block center;
+}
+@media (max-width:780px){
+  .sub_title{
+    font-size: 2.5em;
+}
+@media (max-width:780px){
+  .sub{
+    font-size: 1em;
+}
+
+}
+.fa-home, .text-muted{
+  margin-top: 0;
+
+}
+.fa-home{
+  font-size: 2em;
+}
+
+.header{
+
+  padding-top:10px;
+
 }
 /*.already_guessed{
   background-color: #f2f2f2;
