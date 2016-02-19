@@ -2,18 +2,18 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="icon_large">
-    <i class="fa fa-smile-o fa-5x"></i>
+    <i class="fa fa-smile-o fa-4x"></i>
   </div>
-  <div class="title purple">Leave a message for Baby Maddock</div>
+  <div class="title purple hidden-xs">Leave a message for Baby Maddock</div>
   <div class="welcome">
 
     <div> It could be a message of love, a poem, just</div>
-    <div> something sweet that Leigh and Krystal can keep and </div>
-    <div> read to Bubs as they grow up. </div>
-    <br></br>
+    <div> something sweet that Leigh and Krystal can keep </div>
+    <div> and read to Bubs as they grow up. </div>
+    
     {% if form.errors %}
 
-
+      </div>
       <div class="alert alert-danger alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <strong>There was a problem with your message.</strong>
@@ -30,8 +30,19 @@
       <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" />
     <input type=submit class="btn btn-primary btn-lg" value="Send Your Message"></form>
     <br>
-    {% for message in message_list %}
-    <strong>{{ message.user.first_name }} {{ message.user.last_name }}:</strong> {{ message.text }} <br></br>
-    {% endfor %}
-  </div>
+
+
+
+  <div class="word-wrap">
+  {% for message in message_list %}
+  <strong>{{ message.user.first_name }} {{ message.user.last_name|slice:":1" }}:</strong>
+  <div class="visible-xs">
+  {{ message.text|slice:":150" }}{% if message.text|length > 150 %}...{% endif %}
+</div>
+<div class="hidden-xs">
+  {{ message.text|slice:":500" }}{% if message.text|length > 500 %}...{% endif %}
+  <br>
+</div>
+  <br>
+  {% endfor %}
 {% endblock %}

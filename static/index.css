@@ -14,7 +14,9 @@
   src: url("/static/font/KGALittleSwag.ttf");
 }
 
-
+p{
+  margin:0;
+}
 body{
   background-color:#ffffcc;
 }
@@ -60,7 +62,9 @@ a:hover{
 .btn-primary{
   background-color:#6698ff;
 }
-
+.word-wrap{
+  word-wrap: break-word;
+}
 
 
 .white_box_time{
@@ -71,6 +75,7 @@ a:hover{
   text-align: center;
   padding: 20px;
   width: 50%;
+  min-width: 300px;
   margin:auto;
 
 }
@@ -82,15 +87,22 @@ a:hover{
   font-family: smoothie shoppe;
   font-size: 2em;
   color:#b266ff;
+  text-align: center;
+}
+.other_gift_list{
+  font-family: helvetica;
+  font-size: 1em;
+  color:#737373;
+  text-align: center;
 }
 
 .welcome, .intro{
   text-align: center;
   font-family: helvetica;
-  font-size: 1.2em;
+  font-size: 1em;
   color:#737373;
   float: center;
-  margin-top: 30px;
+
 }
 
 .title{
@@ -252,12 +264,12 @@ textarea{
   border-radius: 10px;
   background-color: white;
   height: 200px;
-  width: 250px;
+  width:100%;
   text-align: center;
   display: inline-block;
   border: solid 3px;
   border-color:#999999;
-  margin-left: -10px;
+
 }
 
 .imperial{

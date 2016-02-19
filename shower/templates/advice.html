@@ -3,13 +3,13 @@
 {% block content %}
 <body>
   <div class="icon_large">
-    <i class="fa fa-comment-o fa-5x"></i>
+    <i class="fa fa-comment-o fa-4x"></i>
   </div>
-  <div class="title blue"> Advice for the Parents to Be</div>
+  <div class="title blue hidden-xs"> Advice for the Parents to Be</div>
   <div class="welcome">
-    <div> Send a message of positive advice, funny pregnancy/parenting stories,</div>
-    <div> and things the parents to be have to look forward to. </div>
-  &nbsp;
+    <div class="col-md-offset-3 col-md-6"> Send a message of positive advice, funny pregnancy/parenting stories,
+    and things the parents to be have to look forward to. </div>
+
     <form action="{% url 'advice_new' %}" method=post>
     {% csrf_token %}
     <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
@@ -17,11 +17,19 @@
   <p><label for="id_user"></label> <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
     <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice"></form>
     <br>
+    <div class="col-md-offset-3 col-md-6 word-wrap">
     {% for advice in advice_list %}
-    <strong>{{ advice.user.first_name }} {{ advice.user.last_name }}:</strong>
-    {{ advice.text }}
-    <br></br>
+    <strong>{{ advice.user.first_name }} {{ advice.user.last_name|slice:":1" }}:</strong>
+    <div class="visible-xs">
+    {{ advice.text|slice:":150" }}{% if advice.text|length > 150 %}...{% endif %}
+  </div>
+  <div class="hidden-xs">
+    {{ advice.text|slice:":500" }}{% if advice.text|length > 500 %}...{% endif %}
+    <br>
+  </div>
+    <br>
 
     {% endfor %}
+  </div>
   </div>
 {% endblock %}
