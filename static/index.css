@@ -32,12 +32,21 @@ body{
 }
 .alert-success{
   height:50%;
-  width: 50%;
+  width: 80%;
   text-align: center;
   margin: auto;
   background-color:#84e184;
   opacity: 0.6;
   color:black;
+}
+.alert-danger{
+  height:50%;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+
+
+  color:red;
 }
 a{
   text-decoration: none;
@@ -80,6 +89,7 @@ a:hover{
 
 }
 
+
 #boy{
   color:#6698ff;
 }
@@ -101,13 +111,13 @@ a:hover{
   font-family: helvetica;
   font-size: 1em;
   color:#737373;
-  float: center;
+
 
 }
 
 .title{
   font-family: smoothie shoppe;
-  font-size: 3em;
+  font-size: 4em;
   text-align: center;
   margin-top: 10px;
   letter-spacing: -3px;
@@ -131,14 +141,19 @@ textarea{
   border: solid 2px;
 }
 .title_banner{
-  font-family: kgalittleswag;
-  font-size: 2em;
+  font-family: helvetica;
+  font-size: .75em;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 
 .sub_title{
   font-family: smoothie shoppe;
-  font-size: 4em;
+  font-size:4em;
   text-align: center;
   letter-spacing: -3px;
 
@@ -265,6 +280,7 @@ textarea{
   background-color: white;
   height: 200px;
   width:100%;
+  min-width: 130px;
   text-align: center;
   display: inline-block;
   border: solid 3px;

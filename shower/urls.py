@@ -17,6 +17,7 @@ urlpatterns =[
     url(r'games/time/guess', views.games_time_guess, name='games_time_guess'),
     url(r'games/time', views.games_time, name='games_time'),
 
+    url(r'advice/(?P<advice_id>[0-9]+)', views.advice_single, name='advice_single'),
     url(r'advice/new', views.advice_new, name='advice_new'),
     url(r'advice/', views.advice, name='advice'),
 
@@ -26,6 +27,7 @@ urlpatterns =[
 
     url(r'gift', views.gift, name='gift'),
 
+    url(r'message/(?P<message_id>[0-9]+)', views.message_single, name='message_single'),
     url(r'message/new', views.message_new, name='message_new'),
     url(r'message/', views.message, name='message'),
 

@@ -6,17 +6,18 @@
   </div>
   <div class="title purple hidden-xs">Leave a message for Baby Maddock</div>
   <div class="welcome">
+  {% if not message %}
+    <div class="col-md-offset-3 col-md-6 welcome">
+       It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up. </div>
 
-    <div> It could be a message of love, a poem, just</div>
-    <div> something sweet that Leigh and Krystal can keep </div>
-    <div> and read to Bubs as they grow up. </div>
-    
+
+
     {% if form.errors %}
 
-      </div>
-      <div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>There was a problem with your message.</strong>
+
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>There was a problem with your message.</strong>
     </div>
 
 
@@ -33,8 +34,9 @@
 
 
 
-  <div class="word-wrap">
+  <div class="word-wrap col-md-offset-3 col-md-6">
   {% for message in message_list %}
+  <a href="{% url 'message_single' message.id %}">
   <strong>{{ message.user.first_name }} {{ message.user.last_name|slice:":1" }}:</strong>
   <div class="visible-xs">
   {{ message.text|slice:":150" }}{% if message.text|length > 150 %}...{% endif %}
@@ -44,5 +46,15 @@
   <br>
 </div>
   <br>
+</a>
   {% endfor %}
+  {% else %}
+  <div class="col-md-offset-3 col-md-6"> {{ message }}
+    <br>
+    <strong>{{ message.user.first_name }} {{ message.user.last_name }}</strong>
+    <br>
+    <a href="{% url 'message' %}" class="btn btn-primary btn-lg">Back to Message</a>
+
+    </div>
+  {% endif %}
 {% endblock %}

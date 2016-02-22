@@ -7,6 +7,7 @@
   </div>
   <div class="title blue hidden-xs"> Advice for the Parents to Be</div>
   <div class="welcome">
+    {% if not advice %}
     <div class="col-md-offset-3 col-md-6"> Send a message of positive advice, funny pregnancy/parenting stories,
     and things the parents to be have to look forward to. </div>
 
@@ -19,6 +20,7 @@
     <br>
     <div class="col-md-offset-3 col-md-6 word-wrap">
     {% for advice in advice_list %}
+    <a href="{% url 'advice_single' advice.id %}">
     <strong>{{ advice.user.first_name }} {{ advice.user.last_name|slice:":1" }}:</strong>
     <div class="visible-xs">
     {{ advice.text|slice:":150" }}{% if advice.text|length > 150 %}...{% endif %}
@@ -28,8 +30,18 @@
     <br>
   </div>
     <br>
+  </a>
 
     {% endfor %}
+    {% else %}
+    <div class="col-md-offset-3 col-md-6"> {{ advice }}
+      <br>
+    <strong>{{ advice.user.first_name }} {{ advice.user.last_name }}</strong>
+<br>
+      <a href="{% url 'advice' %}" class="btn btn-primary btn-lg">Back to Advice</a>
+    </div>
+    {% endif %}
   </div>
+
   </div>
 {% endblock %}
