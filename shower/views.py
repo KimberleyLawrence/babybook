@@ -75,7 +75,8 @@ def games_gender_guess(request):
 @login_required
 def games_date(request):
     print "date"
-    form = DateForm()
+    date = Date.objects.filter(user = request.user).first()
+    form = DateForm( instance = date)
     return render(
         request,
         'games_date.html',
@@ -139,9 +140,22 @@ def games_weight_guess(request):
     print request.POST
     weight = Weight.objects.filter(user = request.user).first()
     form = WeightForm(request.POST, instance = weight)
-    print form.save()
-    messages.success(request, 'Your weight guess was sent, select a new game!')
-    return HttpResponseRedirect(reverse('index'))
+    if form.is_valid():
+        print form.save()
+        messages.success(request, 'Your gender guess was sent, select a new game!')
+        return HttpResponseRedirect(reverse('index'))
+    return render(
+        request,
+        'games_weight.html',
+        {
+            'title': 'Guess the Weight',
+            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34) or in Pounds and Ounces',
+            'icons': ['fa-balance-scale'],
+            'form': form,
+            'color': 'green'
+        }
+    )
+
 
 ##--------------------------------TIME-------------------------------------------
 @login_required

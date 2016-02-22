@@ -2,7 +2,8 @@
 {% extends "game_template.html" %}
 {% block game_content %}
 
-  
+
+
   <div class="white_box_time">
     <div style="overflow:hidden;">
     <div class="form-group">
@@ -19,7 +20,11 @@
                 inline: true,
                 sideBySide: true,
                 format: 'YYYY-MM-DD',
+                {% if form.guess.value %}
+                defaultDate: '{{form.guess.value|date:"Y-m-d"}}'
+                {% else %}
                 defaultDate: '2016-07-30'
+                {% endif %}
 
             });
             $('#date_submit').click(function (data){
