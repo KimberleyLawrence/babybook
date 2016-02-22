@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+
+  <div class="icon_large">
+    {% for icon in icons %}
+    <i class="fa {{ icon }} fa-4x"></i>
+    {% endfor %}
+  </div>
+  <div class="title {{ color }} hidden-xs">{{ title }}</div>
+  <div class="welcome">
+    <br>
+    <div class="col-md-offset-3 col-md-6"> {{ description }}</div>
+    &nbsp;
+    <br>
+    {% if form.errors %}
+
+
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>There was a problem with your message.</strong>
+    </div>
+
+
+    {% endif %}
+    <br>
+{% block game_content %}
+{% endblock %}
+  </div>
+{% endblock %}

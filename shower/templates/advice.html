@@ -1,16 +1,9 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
-{% block content %}
-<body>
-  <div class="icon_large">
-    <i class="fa fa-comment-o fa-4x"></i>
-  </div>
-  <div class="title blue hidden-xs"> Advice for the Parents to Be</div>
-  <div class="welcome">
-    {% if not advice %}
-    <div class="col-md-offset-3 col-md-6"> Send a message of positive advice, funny pregnancy/parenting stories,
-    and things the parents to be have to look forward to. </div>
+{% extends "game_template.html" %}
+{% block game_content %}
 
+
+{% if not advice %}
     <form action="{% url 'advice_new' %}" method=post>
     {% csrf_token %}
     <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">

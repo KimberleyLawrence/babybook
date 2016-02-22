@@ -1,25 +1,15 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
-{% block content %}
-
-  <div class="icon_large">
-    <i class="fa fa-balance-scale fa-4x"></i>
-  </div>
-  <div class="title green">Guess the Weight</div>
-  <div class="welcome">
-    <br>
-    <div class="col-md-offset-3 col-md-6"> Type your guess of bubs birth weight in either Kilograms (eg. 3.34) or in Pounds and Ounces</div>
-    &nbsp;
-
+{% extends "game_template.html" %}
+{% block game_content %}
 
     <form action="{% url 'games_weight_guess' %}" method="post">
-    <input class="input-lg metric" id="kg" name="guess" value="{{ form.guess.value }}" maxlength="4" > <strong>kg</strong>
+    <input class="input-lg metric" id="kg" name="guess" value="{{ form.guess.value }}" maxlength="4" type="number" step="0.01" > <strong>kg</strong>
 
 <br></br>
 
 
-    <input class="imperial input-lg" id="lb" value="0" maxlength=2> <strong>lb</strong>
-    <input class="imperial input-lg" id="oz" value="0" maxlength=2> oz
+    <input class="imperial input-lg" id="lb" value="0" maxlength=2 type="number" step="1"> <strong>lb</strong>
+    <input class="imperial input-lg" id="oz" value="0" maxlength=2 type="number" step="1"> oz
 
       {% csrf_token %}
       <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">

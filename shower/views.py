@@ -10,7 +10,7 @@ from django.contrib import messages
 from .forms import AdviceForm, MessageForm, GenderForm, WeightForm, DateForm, TimeForm
 from .models import Advice, Message, Gender, Weight, Date, Time
 
-
+##-----------------------------INDEX-----------------------------
 @login_required
 def index(request):
     user_gender_guess = Gender.objects.filter(user = request.user).first()
@@ -25,7 +25,7 @@ def index(request):
         'user_time_guess': user_time_guess
     })
 
-
+##---------------------------LOGIN------------------------------------
 @login_required
 def games_gender(request):
     print "gender"
@@ -34,11 +34,17 @@ def games_gender(request):
         request,
         'games_gender.html',
         {
-        'form': form
+        'form': form,
+        ## CHANGE ME
+        'title': 'Guess the Gender',
+        'description': 'Click on the gender you think Bubs will be,  once you click the gender, your guess will be sent.',
+        'icons': ['fa-venus', 'fa-mars'],
+        'color': 'green'
+        ## / CHANGE ME
         }
     )
 
-
+##-------------------------GENDER-----------------------------------
 @login_required
 def games_gender_guess(request):
     print "gender_guess"
@@ -55,11 +61,17 @@ def games_gender_guess(request):
         request,
         'games_gender.html',
         {
-            'form': form
+            'form': form,
+            ## CHANGE ME
+            'title': 'Guess the Gender',
+            'description': 'Click on the gender you think Bubs will be,  once you click the gender, your guess will be sent.',
+            'icons': ['fa-smile-o'],
+            'color': 'purple'
+            ## / CHANGE ME
         }
     )
 
-
+##----------------------------------DATE--------------------------------------
 @login_required
 def games_date(request):
     print "date"
@@ -68,7 +80,13 @@ def games_date(request):
         request,
         'games_date.html',
         {
-            'form': form
+            'form': form,
+            ## CHANGE ME
+            'title': 'Guess the Date Baby Maddock will be Born',
+            'description': 'Select the date you think baby Maddock will enter the world',
+            'icons': ['fa-calendar'],
+            'color': 'purple'
+            ## / CHANGE ME
         }
     )
 
@@ -87,10 +105,16 @@ def games_date_guess(request):
         request,
         'games_date.html',
         {
-            'form': form
+            'form': form,
+            ## CHANGE ME
+            'title': 'Guess the Date Baby Maddock will be Born',
+            'description': 'Select the date you think baby Maddock will enter the world',
+            'icons': ['fa-calendar'],
+            'color': 'purple'
+            ## / CHANGE ME
         }
     )
-
+##-----------------------------------WEIGHT--------------------------------------
 @login_required
 def games_weight(request):
     print "weight"
@@ -100,7 +124,11 @@ def games_weight(request):
         request,
         'games_weight.html',
         {
-            'form': form
+            'title': 'Guess the Weight',
+            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34) or in Pounds and Ounces',
+            'icons': ['fa-balance-scale'],
+            'form': form,
+            'color': 'green'
         }
     )
 
@@ -115,7 +143,7 @@ def games_weight_guess(request):
     messages.success(request, 'Your weight guess was sent, select a new game!')
     return HttpResponseRedirect(reverse('index'))
 
-
+##--------------------------------TIME-------------------------------------------
 @login_required
 def games_time(request):
     print "time"
@@ -125,7 +153,13 @@ def games_time(request):
         request,
         'games_time.html',
         {
-            'form': form
+            'form': form,
+            ## CHANGE ME
+            'title': 'Guess the Time Baby Maddock will be Born',
+            'description': 'Use the arrows to guess what time Baby Maddock with come into the world.',
+            'icons': ['fa-clock-o'],
+            'color': 'green'
+            ## / CHANGE ME
         }
     )
 
@@ -140,7 +174,7 @@ def games_time_guess(request):
     messages.success(request, 'Your birth time guess was sent, select a new game!')
     return HttpResponseRedirect(reverse('index'))
 
-
+##--------------------------ADVICE---------------------------------------------
 @login_required
 def advice(request):
     print "advice"
@@ -151,7 +185,31 @@ def advice(request):
         'advice.html',
         {
             'advice_list': advice_list,
-            'form': form
+            'form': form,
+            ## CHANGE ME
+            'title': 'Advice for the Parents to Be',
+            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and things the parents to be have to look forward to.',
+            'icons': ['fa-comment-o'],
+            'color': 'blue '
+            ## / CHANGE ME
+        }
+    )
+@login_required
+def advice_single(request, advice_id):
+    print "advice_single"
+    advice = Advice.objects.get(id=advice_id)
+
+    return render(
+        request,
+        'advice.html',
+        {
+            'advice': advice,
+            ## CHANGE ME
+            'title': 'Advice for the Parents to Be',
+            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and things the parents to be have to look forward to.',
+            'icons': ['fa-comment-o'],
+            'color': 'blue '
+            ## / CHANGE ME
         }
     )
 
@@ -171,26 +229,47 @@ def advice_new(request):
         request,
         'advice.html',
         {
-            'form': form
+            'form': form,
+            ## CHANGE ME
+            'title': 'Leave a message for Baby Maddock',
+            'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
+            'icons': ['fa-smile-o'],
+            'color': 'purple'
+            ## / CHANGE ME
         }
     )
 
-
+##-----------------------------------BLOG----------------------------------------
 @login_required
 def blog(request):
-    return render(request,'blog.html',{})
+    return render(request,'blog.html',{
+    'title': "Krystal and Leigh's Baby Update Blog",
+    'description': 'Tune in here to get updates of Baby Maddock As Leigh and Krystal prepare to become Mum and Dad.',
+    'icons': ['fa-heart-o'],
+    'color': 'purple'
+    })
 
-
+##---------------------------------CONTACT-----------------------------------------
 @login_required
 def contact(request):
-    return render(request,'contact.html',{})
+    return render(request,'contact.html',{
+    'title': "Contact",
+    'description': 'If you would like to contact the parents to be, or if you have any other questions.',
+    'icons': ['fa-envelope-o'],
+    'color': 'purple'
+    })
 
-
+##-------------------------------GIFT--------------------------------------------
 @login_required
 def gift(request):
-    return render(request,'gift.html',{})
+    return render(request,'gift.html',{
+        'title': 'Gift Registry',
+        'description': 'If you would like to buy a gift for Baby Maddock. Here is a registry the parents to be have created with things they will need for their new bundle of joy.',
+        'icons': ['fa-gift'],
+        'color': 'blue'
+    })
 
-
+##----------------------------MESSAGE--------------------------------------------
 @login_required
 def message(request):
     print "message"
@@ -201,10 +280,30 @@ def message(request):
         'message.html',
         {
             'message_list': message_list,
-            'form': form
+            'form': form,
+            'title': 'Leave a message for Baby Maddock',
+            'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
+            'icons': ['fa-smile-o'],
+            'color': 'purple'
         }
     )
 
+@login_required
+def message_single(request, message_id):
+    print "message_single"
+    message = Message.objects.get(id=message_id)
+
+    return render(
+        request,
+        'message.html',
+        {
+            'message': message,
+            'title': 'Leave a message for Baby Maddock',
+            'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
+            'icons': ['fa-smile-o'],
+            'color': 'purple'
+        }
+    )
 
 @login_required
 def message_new(request):
@@ -219,6 +318,10 @@ def message_new(request):
         request,
         'message.html',
         {
-            'form': form
+            'form': form,
+            'title': 'Leave a message for Baby Maddock',
+            'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
+            'icons': ['fa-smile-o'],
+            'color': 'purple'
         }
     )
