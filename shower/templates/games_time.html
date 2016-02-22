@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 {% extends "game_template.html" %}
 {% block game_content %}
-  
+
+
+
   <div class="white_box_time"
       <div class="col-md-offset-2 col-md-8">
         <div style="overflow:hidden;">
@@ -18,6 +20,10 @@
                     inline: true,
                     sideBySide: true,
                     format: 'HH:mm',
+                    {% if form.guess.value %}
+                    defaultDate: '2016-01-01 {{form.guess.value|date:"h:i A"}}'
+
+                    {% endif %}
 
                 });$('#date_submit').click(function (data){
                   console.log(data)
