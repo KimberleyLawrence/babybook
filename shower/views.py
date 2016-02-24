@@ -306,11 +306,12 @@ def message(request):
 def message_single(request, message_id):
     print "message_single"
     message = Message.objects.get(id=message_id)
-
+    form = MessageForm(instance=message)
     return render(
         request,
         'message.html',
         {
+            'form': form,
             'message': message,
             'title': 'Leave a message for Baby Maddock',
             'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
@@ -320,9 +321,13 @@ def message_single(request, message_id):
     )
 
 @login_required
-def message_new(request):
+def message_new(request, message_id=None):
     print "message_new"
     print request.POST
+    if message_id:
+        message = Message.objects.get(id=message_id)
+        form = MessageForm(request.POST, instance=message)
+
     form = MessageForm(request.POST)
     if form.is_valid():
         print form.save()

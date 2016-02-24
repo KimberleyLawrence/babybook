@@ -5,8 +5,7 @@
 {% if not message %}
     <form action="{% url 'message_new' %}" method=post>
     {% csrf_token %}
-    <label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
-    </textarea>
+    <label for="id_text"></label> {{ form.text }} {{ form.pk }}
     <p><label for="id_user"></label>
       <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" />
     <input type=submit class="btn btn-primary btn-lg" value="Send Your Message"></form>
