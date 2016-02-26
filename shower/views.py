@@ -25,7 +25,7 @@ def index(request):
         'user_time_guess': user_time_guess
     })
 
-##---------------------------LOGIN------------------------------------
+##-------------------------GENDER-----------------------------------
 @login_required
 def games_gender(request):
     print "gender"
@@ -44,7 +44,7 @@ def games_gender(request):
         }
     )
 
-##-------------------------GENDER-----------------------------------
+
 @login_required
 def games_gender_guess(request):
     print "gender_guess"
@@ -84,7 +84,7 @@ def games_date(request):
             'form': form,
             ## CHANGE ME
             'title': 'Guess the Date Baby Maddock will be Born',
-            'description': 'Select the date you think baby Maddock will enter the world',
+            'description': 'Select the date you think baby Maddock will enter the world.',
             'icons': ['fa-calendar'],
             'color': 'purple'
             ## / CHANGE ME
@@ -109,7 +109,7 @@ def games_date_guess(request):
             'form': form,
             ## CHANGE ME
             'title': 'Guess the Date Baby Maddock will be Born',
-            'description': 'Select the date you think baby Maddock will enter the world',
+            'description': 'Select the date you think baby Maddock will enter the world.',
             'icons': ['fa-calendar'],
             'color': 'purple'
             ## / CHANGE ME
@@ -126,7 +126,7 @@ def games_weight(request):
         'games_weight.html',
         {
             'title': 'Guess the Weight',
-            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34) or in Pounds and Ounces',
+            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34), or in Pounds and Ounces.',
             'icons': ['fa-balance-scale'],
             'form': form,
             'color': 'green'
@@ -149,7 +149,7 @@ def games_weight_guess(request):
         'games_weight.html',
         {
             'title': 'Guess the Weight',
-            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34) or in Pounds and Ounces',
+            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34), or in Pounds and Ounces.',
             'icons': ['fa-balance-scale'],
             'form': form,
             'color': 'green'
@@ -170,7 +170,7 @@ def games_time(request):
             'form': form,
             ## CHANGE ME
             'title': 'Guess the Time Baby Maddock will be Born',
-            'description': 'Use the arrows to guess what time Baby Maddock with come into the world.',
+            'description': 'Use the arrows to select what time Baby Maddock with come into the world.',
             'icons': ['fa-clock-o'],
             'color': 'green'
             ## / CHANGE ME
@@ -202,7 +202,7 @@ def advice(request):
             'form': form,
             ## CHANGE ME
             'title': 'Advice for the Parents to Be',
-            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and things the parents to be have to look forward to.',
+            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and things the parents to be will have to look forward to.',
             'icons': ['fa-comment-o'],
             'color': 'blue '
             ## / CHANGE ME
@@ -220,7 +220,7 @@ def advice_single(request, advice_id):
             'advice': advice,
             ## CHANGE ME
             'title': 'Advice for the Parents to Be',
-            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and things the parents to be have to look forward to.',
+            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and things the parents to be will have to look forward to.',
             'icons': ['fa-comment-o'],
             'color': 'blue '
             ## / CHANGE ME
