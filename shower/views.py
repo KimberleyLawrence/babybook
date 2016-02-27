@@ -215,7 +215,7 @@ def advice_single(request, advice_id):
     form = AdviceForm(request.POST, instance = advice)
     if form.is_valid():
         print form.save()
-        messages.success(request, 'Your advice was sent, select a new game!')
+
         return HttpResponseRedirect(reverse('advice')+ '#'+ advice_id)
 
 
@@ -311,8 +311,15 @@ def message(request):
 @login_required
 def message_single(request, message_id):
     print "message_single"
-    message = Message.objects.get(id=message_id)
-    form = MessageForm(instance=message)
+    message = Message.objects.filter(id=message_id).first()
+    form = MessageForm(request.POST, instance = message)
+
+    if form.is_valid():
+        print form.save()
+        
+        return HttpResponseRedirect(reverse('message')+ '#' + message_id)
+
+
     return render(
         request,
         'message.html',
@@ -326,19 +333,18 @@ def message_single(request, message_id):
         }
     )
 
+
 @login_required
 def message_new(request, message_id=None):
     print "message_new"
     print request.POST
-    if message_id:
-        message = Message.objects.get(id=message_id)
-        form = MessageForm(request.POST, instance=message)
-
     form = MessageForm(request.POST)
+
     if form.is_valid():
         print form.save()
         messages.success(request, 'Your message was sent, select a new game!')
         return HttpResponseRedirect(reverse('index'))
+
     return render(
         request,
         'message.html',
