@@ -1,2 +1,2 @@
 scp babybook/settings.py root@www.kimberleylawrence.com:/root/babybook/babybook/settings.py
-ssh root@www.kimberleylawrence.com "cd /root/babybook && git pull"
+ssh root@www.kimberleylawrence.com "cd /babybook && git pull && chown -R www-data: /babybook"
