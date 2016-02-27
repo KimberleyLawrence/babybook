@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends "game_template.html" %}
+{% block game_content %}
+
+
+{% if not advice %}
+    <form action="{% url 'advice_new' %}" method=post>
+    {% csrf_token %}
+    <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
+  </textarea></p>
+  <p><label for="id_user"></label> <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
+    <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice"></form>
+    <br>
+    <div class="col-md-offset-3 col-md-6 word-wrap">
+    {% for advice in advice_list %}
+    <a href="{% url 'advice_single' advice.id %}">
+    <strong>{{ advice.user.first_name }} {{ advice.user.last_name|slice:":1" }}:</strong>
+    <div class="visible-xs">
+    {{ advice.text|slice:":150" }}{% if advice.text|length > 150 %}...{% endif %}
+  </div>
+  <div class="hidden-xs">
+    {{ advice.text|slice:":500" }}{% if advice.text|length > 500 %}...{% endif %}
+    <br>
+  </div>
+    <br>
+  </a>
+
+    {% endfor %}
+    {% else %}
+    <div class="col-md-offset-3 col-md-6"> {{ advice }}
+      <br>
+    <strong>{{ advice.user.first_name }} {{ advice.user.last_name }}</strong>
+<br>
+      <a href="{% url 'advice' %}" class="btn btn-primary btn-lg">Back to Advice</a>
+    </div>
+    {% endif %}
+  </div>
+
+  </div>
+{% endblock %}

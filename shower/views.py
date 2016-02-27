@@ -211,7 +211,13 @@ def advice(request):
 @login_required
 def advice_single(request, advice_id):
     print "advice_single"
-    advice = Advice.objects.get(id=advice_id)
+    advice = Advice.objects.filter(id=advice_id).first()
+    form = AdviceForm(request.POST, instance = advice)
+    if form.is_valid():
+        print form.save()
+        messages.success(request, 'Your advice was sent, select a new game!')
+        return HttpResponseRedirect(reverse('advice')+ '#'+ advice_id)
+
 
     return render(
         request,

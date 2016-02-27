@@ -10,6 +10,9 @@ class Advice(models.Model):
     def __str__(self):
         return self.text
 
+    def text_area_rows(self):
+        text_length = len(self.text)
+        return (text_length / 40) + 3
 
 class Message(models.Model):
     text = models.TextField()

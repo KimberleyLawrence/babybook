@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 {% extends "game_template.html" %}
 {% block game_content %}
-
-
-{% if not advice %}
-    <form action="{% url 'advice_new' %}" method=post>
-    {% csrf_token %}
-    <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
+<form action="{% url 'advice_new' %}" method=post>
+  {% csrf_token %} <!-- varifys user in order to post -->
+  <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
   </textarea></p>
   <p><label for="id_user"></label> <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
-    <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice"></form>
-    <br>
-    <div class="col-md-offset-3 col-md-6 word-wrap">
-    {% for advice in advice_list %}
-    <a href="{% url 'advice_single' advice.id %}">
+  <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice">
+</form>
+
+{% for advice in advice_list %}
+
+
+  <div>
+    
+    {% if advice.user == request.user %}
     <strong>{{ advice.user.first_name }} {{ advice.user.last_name|slice:":1" }}:</strong>
-    <div class="visible-xs">
-    {{ advice.text|slice:":150" }}{% if advice.text|length > 150 %}...{% endif %}
-  </div>
-  <div class="hidden-xs">
-    {{ advice.text|slice:":500" }}{% if advice.text|length > 500 %}...{% endif %}
-    <br>
-  </div>
-    <br>
-  </a>
-
-    {% endfor %}
-    {% else %}
-    <div class="col-md-offset-3 col-md-6"> {{ advice }}
-      <br>
-    <strong>{{ advice.user.first_name }} {{ advice.user.last_name }}</strong>
-<br>
-      <a href="{% url 'advice' %}" class="btn btn-primary btn-lg">Back to Advice</a>
+    <div id="advice_text_{{advice.id}}">{{ advice.text }}
+      <a name='{{advice.id}}' onclick="$('#advice_form_{{advice.id}}').show();$('#advice_text_{{advice.id}}').hide()" >
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
     </div>
-    {% endif %}
-  </div>
 
-  </div>
+    <form action="{% url 'advice_single' advice.id %}" method=post style="display:none" id="advice_form_{{advice.id}}">
+      {% csrf_token %}
+      <p><textarea cols="40" id="id_text" name="text" rows="{{advice.text_area_rows }}">{{ advice.text }}
+      </textarea></p>
+      <p>
+        <label for="id_user"></label>
+        <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
+      <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice">
+    </form>
+    {% else %}
+    <br>
+  <strong>{{ advice.user.first_name }} {{ advice.user.last_name|slice:":1" }}:</strong>
+
+  {{ advice.text }}
+  {% endif %}
+  <br>
+</div>
+<hr>
+{% endfor %}
+
 {% endblock %}
