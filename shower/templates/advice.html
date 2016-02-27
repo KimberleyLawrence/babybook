@@ -12,8 +12,8 @@
 {% for advice in advice_list %}
 
 
-  <div>
-    
+  <div class="col-md-offset-4 col-md-4">
+
     {% if advice.user == request.user %}
     <strong>{{ advice.user.first_name }} {{ advice.user.last_name|slice:":1" }}:</strong>
     <div id="advice_text_{{advice.id}}">{{ advice.text }}
@@ -39,7 +39,7 @@
   {% endif %}
   <br>
 </div>
-<hr>
+
 {% endfor %}
 
 {% endblock %}

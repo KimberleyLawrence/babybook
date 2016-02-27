@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 {% extends "game_template.html" %}
 {% block game_content %}
+<form action="{% url 'message_new' %}" method=post>
+  {% csrf_token %} <!-- varifys user in order to post -->
+  <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
+  </textarea></p>
+  <p><label for="id_user"></label> <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
+  <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice">
+</form>
 
-{% if not message %}
-    <form action="{% url 'message_new' %}" method=post>
-    {% csrf_token %}
-    <label for="id_text"></label> {{ form.text }} {{ form.pk }}
-    <p><label for="id_user"></label>
-      <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" />
-    <input type=submit class="btn btn-primary btn-lg" value="Send Your Message"></form>
-    <br>
+{% for message in message_list %}
 
 
+  <div class="col-md-offset-4 col-md-4">
 
-  <div class="word-wrap col-md-offset-3 col-md-6">
-  {% for message in message_list %}
-  <a href="{% url 'message_single' message.id %}">
-  <strong>{{ message.user.first_name }} {{ message.user.last_name|slice:":1" }}:</strong>
-  <div class="visible-xs">
-  {{ message.text|slice:":150" }}{% if message.text|length > 150 %}...{% endif %}
-</div>
-<div class="hidden-xs">
-  {{ message.text|slice:":500" }}{% if message.text|length > 500 %}...{% endif %}
-  <br>
-</div>
-  <br>
-</a>
-  {% endfor %}
-  {% else %}
-  <div class="col-md-offset-3 col-md-6"> {{ message }}
-    <br>
-    <strong>{{ message.user.first_name }} {{ message.user.last_name }}</strong>
-    <br>
-    <a href="{% url 'message' %}" class="btn btn-primary btn-lg">Back to Message</a>
-
+    {% if message.user == request.user %}
+    <strong>{{ message.user.first_name }} {{ message.user.last_name|slice:":1" }}:</strong>
+    <div id="message_text_{{message.id}}">{{ message.text }}
+      <a name='{{message.id}}' onclick="$('#message_form_{{message.id}}').show();$('#message_text_{{message.id}}').hide()" >
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
     </div>
+
+    <form action="{% url 'message_single' message.id %}" method=post style="display:none" id="message_form_{{message.id}}">
+      {% csrf_token %}
+      <p><textarea cols="40" id="id_text" name="text" rows="{{message.text_area_rows }}">{{ message.text }}
+      </textarea></p>
+      <p>
+        <label for="id_user"></label>
+        <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
+      <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice">
+    </form>
+    {% else %}
+    <br>
+  <strong>{{ message.user.first_name }} {{ message.user.last_name|slice:":1" }}:</strong>
+
+  {{ message.text }}
   {% endif %}
+  <br>
+</div>
+
+{% endfor %}
+
 {% endblock %}
