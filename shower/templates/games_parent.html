@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends "game_template.html" %}
+{% block game_content %}
+
+<!---- Krystal ---->
+  <div class="row">
+
+    <div class="col-md-offset-3 col-md-3 col-xs-6" style="text-align: right">
+      <form action="{% url 'games_parent_guess' %}" name="krystal" method="post">
+        <a href="javascript:document.krystal.submit()">
+          <div class="guessbox">
+
+
+            <i class="fa fa-heart fa-5x" id="krystal"></i>
+            <div class="game_title">Krystal</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="krystal" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+        </div>
+      </a>
+    </form>
+    </div>
+
+  <!-- Leigh-->
+    <div class="col-md-3 col-xs-6" style="text-align: left">
+      <form action="{% url 'games_parent_guess' %}" name="leigh" method="post">
+        <a href="javascript:document.leigh.submit()">
+          <div class="guessbox">
+
+
+            <i class="fa fa-star fa-5x" id="leigh"></i>
+            <div class="game_title">Leigh</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="leigh" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+        </div>
+      </a>
+    </form>
+    </div>
+
+
+
+  </div>
+
+
+
+{% endblock %}

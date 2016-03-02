@@ -246,7 +246,7 @@ input[type=number]::-webkit-outer-spin-button {
   color:#84e184;
 }
 .fa-smile-o{
-  color:#6698ff;
+  color:#84e184;
 }
 .fa-heart-o{
   color:#6698ff;
@@ -281,6 +281,10 @@ input[type=number]::-webkit-outer-spin-button {
   color:#84e184;
 }
 .fa-shopping-bag{
+  color:#6698ff;
+}
+
+.fa-users{
   color:#6698ff;
 }
 

@@ -27,6 +27,11 @@ class HairForm(ModelForm):
         model =  Hair
         fields = ['guess', 'user']
 
+class ParentForm(ModelForm):
+    class Meta:
+        model =  Parent
+        fields = ['guess', 'user']
+
 class WeightForm(ModelForm):
     class Meta:
         model =  Weight

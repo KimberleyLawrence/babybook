@@ -19,6 +19,7 @@ def index(request):
     user_time_guess = Time.objects.filter(user = request.user).first()
     user_eye_guess = Eye.objects.filter(user = request.user).first()
     user_hair_guess = Hair.objects.filter(user = request.user).first()
+    user_parent_guess = Parent.objects.filter(user = request.user).first()
 
     return render(request,'index.html',{
         'user_gender_guess': user_gender_guess,
@@ -26,7 +27,8 @@ def index(request):
         'user_date_guess': user_date_guess,
         'user_time_guess': user_time_guess,
         'user_eye_guess': user_eye_guess,
-        'user_hair_guess': user_hair_guess
+        'user_hair_guess': user_hair_guess,
+        'user_parent_guess': user_parent_guess,
     })
 
 ##-------------------------GENDER-----------------------------------
@@ -307,8 +309,8 @@ def message(request):
             'form': form,
             'title': 'Leave a message for Baby Maddock',
             'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
-            'icons': ['fa-smile-o'],
-            'color': 'purple'
+            'icons': ['fa-child'],
+            'color': 'blue'
         }
     )
 
@@ -332,8 +334,8 @@ def message_single(request, message_id):
             'message': message,
             'title': 'Leave a message for Baby Maddock',
             'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
-            'icons': ['fa-smile-o'],
-            'color': 'purple'
+            'icons': ['fa-child'],
+            'color': 'blue'
         }
     )
 
@@ -356,8 +358,8 @@ def message_new(request, message_id=None):
             'form': form,
             'title': 'Leave a message for Baby Maddock',
             'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
-            'icons': ['fa-smile-o'],
-            'color': 'purple'
+            'icons': ['fa-child'],
+            'color': 'blue'
         }
     )
 #-------------------------- eye ---------------------
@@ -416,10 +418,10 @@ def games_hair(request):
         {
         'form': form,
         ## CHANGE ME
-        'title': 'Guess the Hair Colour',
+        'title': "Guess bub's Hair Colour ",
         'description': 'Click on the colour hair you think bubs will be born with, once you have clicked the colour, your selection is made.',
         'icons': ['fa-smile-o'],
-        'color': 'green'
+        'color': 'blue'
         ## / CHANGE ME
         }
     )
@@ -443,10 +445,56 @@ def games_hair_guess(request):
         {
             'form': form,
             ## CHANGE ME
-            'title': 'Guess the Hair Colour',
+            'title': "Guess bub's Hair Colour ",
             'description': 'Click on the colour hair you think bubs will be born with, once you have clicked the colour, your selection is made.',
             'icons': ['fa-smile-o'],
-            'color': 'green'
+            'color': 'blue'
+            ## / CHANGE ME
+        }
+    )
+
+    #-------------------------- parent ---------------------
+@login_required
+def games_parent(request):
+    print "parent"
+    form = ParentForm()
+    return render(
+        request,
+        'games_parent.html',
+        {
+        'form': form,
+        ## CHANGE ME
+        'title': 'Which parent will bubs look like more at birth?',
+        'description': 'Select the parent you think bubs will look like more when they are born, once you have clicked your selection, your guess is made.',
+        'color': 'green',
+        'icons': ['fa-users'],
+        ## / CHANGE ME
+        }
+    )
+
+
+@login_required
+def games_parent_guess(request):
+    print "parent_guess"
+    print request.POST
+    parent = Parent.objects.filter(user = request.user).first()
+    form = ParentForm(request.POST, instance = parent)
+
+    if form.is_valid():
+        print form.save()
+        messages.success(request, 'Your parent guess was sent, select a new game!')
+        return HttpResponseRedirect(reverse('index'))
+
+    return render(
+        request,
+        'games_parent.html',
+        {
+            'form': form,
+            ## CHANGE ME
+            'title': 'Which parent will bubs look like more at birth?',
+            'description': 'Select the parent you think bubs will look like more when they are born, once you have clicked your selection, your guess is made.',
+            'color': 'green',
+            'icons': ['fa-users'],
             ## / CHANGE ME
         }
     )

@@ -19,7 +19,7 @@
 
 
 
-
+<!-- -------- weight------------->
   <div class="row">
     <div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
     <div class="games {% if user_weight_guess %}already_Guess{% endif %}">
@@ -34,6 +34,8 @@
       </a>
     </div>
     </div>
+
+<!---------------- Gender ------------->
     <div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
     <div class="games {% if user_gender_guess %}already_Guess{% endif %}">
       <a href="{% url 'games_gender' %}">
@@ -48,6 +50,7 @@
       </a>
     </div>
     </div>
+<!-------------- Date -------------->
     <div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
     <div class="games {% if user_date_guess %}already_Guess{% endif %}">
       <a href="{% url 'games_date' %}">
@@ -62,6 +65,7 @@
     </div>
     </div>
 
+<!----------------- Time ----------------->
     <div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
     <div class="games {% if user_gender_guess %}already_Guess{% endif %}">
       <a href="{% url 'games_time' %}">
@@ -75,18 +79,60 @@
       </a>
     </div>
   </div>
+<!----------- Eye ------------------>
   <div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
-    <div class="games">
-      <a href="{% url 'advice' %}">
-        <div  id="game_advice">
-          <i class="fa fa-comment-o fa-5x"></i>
-          <div class="game_title">Advice for the Parents to be</div>
-            <div class="guess blue">&nbsp;</div>
-        </div>
-      </a>
-    </div>
-
+  <div class="games">
+    <a href="{% url 'games_eye' %}">
+      <div  id="game_eye">
+        <i class="fa fa-eye fa-5x"></i>
+        <div class="game_title">Guess Baby's Eye Colour</div>
+          <div class="guess purple">{% if user_eye_guess %}Guess: {{ user_eye_guess.guess }}{% endif %}&nbsp;</div>
+      </div>
+    </a>
   </div>
+</div>
+
+<!-- ---------Hair  --------- -->
+<div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
+<div class="games {% if user_gender_guess %}already_Guess{% endif %}">
+  <a href="{% url 'games_hair' %}">
+    <div class="game" id="game_hair">
+      <i class="fa fa-smile-o fa-5x"></i>
+      <div class="game_title">Guess Baby's Hair Colour</div>
+
+      <div class="guess green">{% if user_hair_guess %}Guess: {{ user_hair_guess.guess }}{% endif %}&nbsp;</div>
+
+    </div>
+  </a>
+</div>
+</div>
+<!-------- Parent ------------>
+<div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
+<div class="games">
+  <a href="{% url 'games_parent' %}">
+    <div  id="game_parent">
+      <i class="fa fa-users fa-5x"></i>
+      <div class="game_title">Which parent will bubs look like?</div>
+        <div class="guess blue">{% if user_parent_guess %}Guess: {{ user_parent_guess.guess }}{% endif %}&nbsp;</div>
+    </div>
+  </a>
+</div>
+</div>
+
+<!----------- Advice---------------->
+<div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
+  <div class="games">
+    <a href="{% url 'advice' %}">
+      <div  id="game_advice">
+        <i class="fa fa-comment-o fa-5x"></i>
+        <div class="game_title">Advice for the Parents to be</div>
+          <div class="guess blue">&nbsp;</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!------------- Message------------->
 <div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
     <div class="games">
       <a href="{% url 'message' %}">
@@ -99,44 +145,7 @@
     </div>
   </div>
 
-<!-- ------------------ -->
-<div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
-<div class="games {% if user_gender_guess %}already_Guess{% endif %}">
-  <a href="{% url 'games_hair' %}">
-    <div class="game" id="game_hair">
-      <i class="fa fa-smile-o fa-5x"></i>
-      <div class="game_title">Guess Baby's Hair Colour</div>
-
-      <div class="guess blue">{% if user_hair_guess %}Guess: {{ user_hair_guess.guess }}{% endif %}&nbsp;</div>
-
-    </div>
-  </a>
-</div>
-</div>
-<div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
-<div class="games">
-  <a href="{% url 'games_eye' %}">
-    <div  id="game_eye">
-      <i class="fa fa-eye fa-5x"></i>
-      <div class="game_title">Guess Baby's Eye Colour</div>
-        <div class="guess purple">{% if user_eye_guess %}Guess: {{ user_eye_guess.guess }}{% endif %}&nbsp;</div>
-    </div>
-  </a>
-</div>
-
-</div>
-<div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
-<div class="games">
-  <a href="{% url 'message' %}">
-    <div  id="game_baby_message">
-      <i class="fa fa-smile-o fa-5x"></i>
-      <div class="game_title">FIND ANOTHER GAME</div>
-        <div class="guess blue">{% if user_hair_guess %}Guess: {{ user_hair_guess.guess }}{% endif %}&nbsp;</div>
-    </div>
-  </a>
-</div>
-</div>
-<!---------------------->
+<!-----------Blog ----------->
 
 <div class="col-md-4 col-sm-4 col-xs-12 col-centered col-padding">
     <div class="games">
@@ -149,6 +158,7 @@
       </a>
     </div>
 </div>
+<!-------- gift ----------->
 <div class="col-md-4 col-sm-4 col-xs-12 col-centered col-padding">
     <div class="games">
       <a href="{% url 'gift' %}">
@@ -160,6 +170,7 @@
       </a>
     </div>
 </div>
+<!------- Contact----------->
 <div class="col-md-4 col-sm-4 col-xs-12 col-centered col-padding">
     <div class="games">
       <a href="{% url 'contact' %}">
@@ -172,5 +183,5 @@
     </div>
   </div>
 
-
+</div>
 {% endblock %}
