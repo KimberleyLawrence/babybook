@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% extends "game_template.html" %}
+{% block game_content %}
+
+<!---- Ginger ---->
+  <div class="row">
+
+    <div class=" col-md-offset-3 col-md-3 col-xs-6" style="text-align: right">
+      <form action="{% url 'games_hair_guess' %}" name="ginger" method="post">
+        <a href="javascript:document.ginger.submit()">
+          <div class="guessbox">
+
+
+            <i class="fa fa-circle fa-5x" id="ginger"></i>
+            <div class="game_title">Ginger</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="ginger" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+        </div>
+      </a>
+    </form>
+    </div>
+
+  <!-- Blonde-->
+    <div class="col-md-3 col-xs-6" style="text-align: left">
+      <form action="{% url 'games_hair_guess' %}" name="blonde" method="post">
+        <a href="javascript:document.blonde.submit()">
+          <div class="guessbox">
+
+
+            <i class="fa fa-circle fa-5x" id="blonde"></i>
+            <div class="game_title">Blonde</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="blonde" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+        </div>
+      </a>
+    </form>
+    </div>
+  </div>
+<br>
+<!-- Brown-->
+
+<div class="row">
+  <div class="col-md-offset-3 col-md-3 col-xs-6" style="text-align: left">
+      <form action="{% url 'games_hair_guess' %}" name="brown" method="post">
+        <a href="javascript:document.brown.submit()">
+          <div class="guessbox">
+
+
+            <i class="fa fa-circle fa-5x" id="brown"></i>
+            <div class="game_title">Brown</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="brown" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+        </div>
+      </a>
+    </form>
+    </div>
+<!---black ----->
+<div class="col-md-3 col-xs-6" style="text-align: left">
+    <form action="{% url 'games_hair_guess' %}" name="nohair" method="post">
+      <a href="javascript:document.nohair.submit()">
+        <div class="guessbox">
+
+
+          <i class="fa fa-circle-o fa-5x" id="black"></i>
+          <div class="game_title">No hair at birth</div>
+
+          {% csrf_token %}
+          <input id="id_guess" maxlength="6" name="guess" value="bald" type="hidden">
+          <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+      </div>
+    </a>
+  </form>
+  </div>
+
+
+  </div>
+
+
+
+{% endblock %}

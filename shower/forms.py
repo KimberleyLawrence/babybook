@@ -22,6 +22,11 @@ class EyeForm(ModelForm):
         model =  Eye
         fields = ['guess', 'user']
 
+class HairForm(ModelForm):
+    class Meta:
+        model =  Hair
+        fields = ['guess', 'user']
+
 class WeightForm(ModelForm):
     class Meta:
         model =  Weight

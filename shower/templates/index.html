@@ -102,12 +102,12 @@
 <!-- ------------------ -->
 <div class="col-md-4 col-sm-4 col-xs-6 col-centered col-padding">
 <div class="games {% if user_gender_guess %}already_Guess{% endif %}">
-  <a href="{% url 'games_time' %}">
-    <div class="game" id="game_time">
+  <a href="{% url 'games_hair' %}">
+    <div class="game" id="game_hair">
       <i class="fa fa-smile-o fa-5x"></i>
       <div class="game_title">Guess Baby's Hair Colour</div>
 
-      <div class="guess blue">{% if user_time_guess %}Guess: {{ user_time_guess.guess }}{% endif %}&nbsp;</div>
+      <div class="guess blue">{% if user_hair_guess %}Guess: {{ user_hair_guess.guess }}{% endif %}&nbsp;</div>
 
     </div>
   </a>
@@ -130,8 +130,8 @@
   <a href="{% url 'message' %}">
     <div  id="game_baby_message">
       <i class="fa fa-smile-o fa-5x"></i>
-      <div class="game_title">Leave a message for Baby Maddock</div>
-        <div class="guess blue"> &nbsp;</div>
+      <div class="game_title">FIND ANOTHER GAME</div>
+        <div class="guess blue">{% if user_hair_guess %}Guess: {{ user_hair_guess.guess }}{% endif %}&nbsp;</div>
     </div>
   </a>
 </div>

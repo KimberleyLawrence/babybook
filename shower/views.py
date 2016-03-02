@@ -18,13 +18,15 @@ def index(request):
     user_date_guess = Date.objects.filter(user = request.user).first()
     user_time_guess = Time.objects.filter(user = request.user).first()
     user_eye_guess = Eye.objects.filter(user = request.user).first()
+    user_hair_guess = Hair.objects.filter(user = request.user).first()
 
     return render(request,'index.html',{
         'user_gender_guess': user_gender_guess,
         'user_weight_guess': user_weight_guess,
         'user_date_guess': user_date_guess,
         'user_time_guess': user_time_guess,
-        'user_eye_guess': user_eye_guess
+        'user_eye_guess': user_eye_guess,
+        'user_hair_guess': user_hair_guess
     })
 
 ##-------------------------GENDER-----------------------------------
@@ -399,6 +401,51 @@ def games_eye_guess(request):
             'title': 'Guess the Eye Colour',
             'description': 'Click on the colour you think Bubs will have,  once you click the colour, your guess will be sent.',
             'icons': ['fa-eye'],
+            'color': 'green'
+            ## / CHANGE ME
+        }
+    )
+#-------------------------- hair ---------------------
+@login_required
+def games_hair(request):
+    print "hair"
+    form = HairForm()
+    return render(
+        request,
+        'games_hair.html',
+        {
+        'form': form,
+        ## CHANGE ME
+        'title': 'Guess the Hair Colour',
+        'description': 'Click on the colour hair you think bubs will be born with, once you have clicked the colour, your selection is made.',
+        'icons': ['fa-smile-o'],
+        'color': 'green'
+        ## / CHANGE ME
+        }
+    )
+
+
+@login_required
+def games_hair_guess(request):
+    print "hair_guess"
+    print request.POST
+    hair = Hair.objects.filter(user = request.user).first()
+    form = HairForm(request.POST, instance = hair)
+
+    if form.is_valid():
+        print form.save()
+        messages.success(request, 'Your hair guess was sent, select a new game!')
+        return HttpResponseRedirect(reverse('index'))
+
+    return render(
+        request,
+        'games_hair.html',
+        {
+            'form': form,
+            ## CHANGE ME
+            'title': 'Guess the Hair Colour',
+            'description': 'Click on the colour hair you think bubs will be born with, once you have clicked the colour, your selection is made.',
+            'icons': ['fa-smile-o'],
             'color': 'green'
             ## / CHANGE ME
         }

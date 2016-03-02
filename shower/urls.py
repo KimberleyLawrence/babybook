@@ -34,4 +34,16 @@ urlpatterns =[
     url(r'games/eye/guess/', views.games_eye_guess, name='games_eye_guess'),
     url(r'games/eye/', views.games_eye, name='games_eye'),
 
+    url(r'games/hair/guess/', views.games_hair_guess, name='games_hair_guess'),
+    url(r'games/hair/', views.games_hair, name='games_hair'),
+
+
+
+
+
+
+
+
+
+
         ]
