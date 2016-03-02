@@ -93,6 +93,17 @@ a:hover{
 #boy{
   color:#6698ff;
 }
+
+#blue{
+  color:#1a53ff;
+}
+
+#brown{
+  color:#804000;
+}
+#green{
+  color:#009900;
+}
 .other_gifts{
   font-family: smoothie shoppe;
   font-size: 2em;
@@ -222,8 +233,11 @@ input[type=number]::-webkit-outer-spin-button {
 .fa-comment-o{
   color:#b266ff;
 }
-.fa-smile-o{
+.fa-child{
   color:#84e184;
+}
+.fa-smile-o{
+  color:#6698ff;
 }
 .fa-heart-o{
   color:#6698ff;
@@ -236,6 +250,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .fa-heart{
+  color:#b266ff;
+}
+
+.fa-eye{
   color:#b266ff;
 }
 

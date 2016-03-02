@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends "game_template.html" %}
+{% block game_content %}
+
+<!---- blue ---->
+  <div class="row">
+
+    <div class=" col-md-4 col-xs-6" style="text-align: right">
+      <form action="{% url 'games_eye_guess' %}" name="Blue" method="post">
+        <a href="javascript:document.blue.submit()">
+          <div class="guessbox">
+
+
+            <i class="fa fa-eye fa-5x" id="blue"></i>
+            <div class="game_title">Blue</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="blue" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+        </div>
+      </a>
+    </form>
+    </div>
+
+  <!-- Green-->
+    <div class="col-md-4 col-xs-6" style="text-align: left">
+      <form action="{% url 'games_eye_guess' %}" name="green" method="post">
+        <a href="javascript:document.green.submit()">
+          <div class="guessbox">
+
+
+            <i class="fa fa-eye fa-5x green" id="green"></i>
+            <div class="game_title">Green</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="green" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+        </div>
+      </a>
+    </form>
+    </div>
+
+<!-- Brown-->
+
+
+  <div class="col-md-4 col-xs-6" style="text-align: left">
+      <form action="{% url 'games_eye_guess' %}" name="brown" method="post">
+        <a href="javascript:document.brown.submit()">
+          <div class="guessbox">
+
+
+            <i class="fa fa-eye fa-5x" id="brown"></i>
+            <div class="game_title">Brown</div>
+
+            {% csrf_token %}
+            <input id="id_guess" maxlength="6" name="guess" value="brown" type="hidden">
+            <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+        </div>
+      </a>
+    </form>
+    </div>
+
+  </div>
+
+
+
+{% endblock %}

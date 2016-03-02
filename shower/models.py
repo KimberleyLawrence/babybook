@@ -29,6 +29,12 @@ class Gender(models.Model):
     def __str__(self):
         return self.guess
 
+class Eye(models.Model):
+    guess = models.CharField(max_length=6)
+    user = models.OneToOneField(User)
+
+    def __str__(self):
+        return self.guess
 
 class Weight(models.Model):
     guess = models.DecimalField(decimal_places=2, max_digits=4, default=0)

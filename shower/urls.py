@@ -31,4 +31,7 @@ urlpatterns =[
     url(r'message/new', views.message_new, name='message_new'),
     url(r'message/', views.message, name='message'),
 
+    url(r'games/eye/guess/', views.games_eye_guess, name='games_eye_guess'),
+    url(r'games/eye/', views.games_eye, name='games_eye'),
+
         ]

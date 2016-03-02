@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Advice, Message, Gender, Weight, Date, Time
+from .models import *
 
 
 class AdviceForm(ModelForm):
@@ -15,6 +15,11 @@ class MessageForm(ModelForm):
 class GenderForm(ModelForm):
     class Meta:
         model =  Gender
+        fields = ['guess', 'user']
+
+class EyeForm(ModelForm):
+    class Meta:
+        model =  Eye
         fields = ['guess', 'user']
 
 class WeightForm(ModelForm):

@@ -7,8 +7,8 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import AdviceForm, MessageForm, GenderForm, WeightForm, DateForm, TimeForm
-from .models import Advice, Message, Gender, Weight, Date, Time
+from .forms import *
+from .models import *
 
 ##-----------------------------INDEX-----------------------------
 @login_required
@@ -17,12 +17,14 @@ def index(request):
     user_weight_guess = Weight.objects.filter(user = request.user).first()
     user_date_guess = Date.objects.filter(user = request.user).first()
     user_time_guess = Time.objects.filter(user = request.user).first()
+    user_eye_guess = Eye.objects.filter(user = request.user).first()
 
     return render(request,'index.html',{
         'user_gender_guess': user_gender_guess,
         'user_weight_guess': user_weight_guess,
         'user_date_guess': user_date_guess,
-        'user_time_guess': user_time_guess
+        'user_time_guess': user_time_guess,
+        'user_eye_guess': user_eye_guess
     })
 
 ##-------------------------GENDER-----------------------------------
@@ -142,7 +144,7 @@ def games_weight_guess(request):
     form = WeightForm(request.POST, instance = weight)
     if form.is_valid():
         print form.save()
-        messages.success(request, 'Your gender guess was sent, select a new game!')
+        messages.success(request, 'Your weight guess was sent, select a new game!')
         return HttpResponseRedirect(reverse('index'))
     return render(
         request,
@@ -316,7 +318,7 @@ def message_single(request, message_id):
 
     if form.is_valid():
         print form.save()
-        
+
         return HttpResponseRedirect(reverse('message')+ '#' + message_id)
 
 
@@ -354,5 +356,50 @@ def message_new(request, message_id=None):
             'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
             'icons': ['fa-smile-o'],
             'color': 'purple'
+        }
+    )
+#-------------------------- eye ---------------------
+@login_required
+def games_eye(request):
+    print "eye"
+    form = EyeForm()
+    return render(
+        request,
+        'games_eye.html',
+        {
+        'form': form,
+        ## CHANGE ME
+        'title': 'Guess the Eye Colour',
+        'description': 'Click on the colour you think Bubs will have,  once you click the colour, your guess will be sent.',
+        'icons': ['fa-eye'],
+        'color': 'green'
+        ## / CHANGE ME
+        }
+    )
+
+
+@login_required
+def games_eye_guess(request):
+    print "eye_guess"
+    print request.POST
+    eye = Eye.objects.filter(user = request.user).first()
+    form = EyeForm(request.POST, instance = eye)
+
+    if form.is_valid():
+        print form.save()
+        messages.success(request, 'Your eye guess was sent, select a new game!')
+        return HttpResponseRedirect(reverse('index'))
+
+    return render(
+        request,
+        'games_eye.html',
+        {
+            'form': form,
+            ## CHANGE ME
+            'title': 'Guess the Eye Colour',
+            'description': 'Click on the colour you think Bubs will have,  once you click the colour, your guess will be sent.',
+            'icons': ['fa-eye'],
+            'color': 'green'
+            ## / CHANGE ME
         }
     )
