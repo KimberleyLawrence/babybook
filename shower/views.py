@@ -43,7 +43,7 @@ def games_gender(request):
         'form': form,
         ## CHANGE ME
         'title': 'Guess the Gender',
-        'description': 'Click on the gender you think Bubs will be,  once you click the gender, your guess will be sent.',
+        'description': 'Click on the gender you think Bubs will be.',
         'icons': ['fa-venus', 'fa-mars'],
         'color': 'green'
         ## / CHANGE ME
@@ -70,7 +70,7 @@ def games_gender_guess(request):
             'form': form,
             ## CHANGE ME
             'title': 'Guess the Gender',
-            'description': 'Click on the gender you think Bubs will be,  once you click the gender, your guess will be sent.',
+            'description': 'Click on the gender you think Bubs will be.',
             'icons': ['fa-smile-o'],
             'color': 'purple'
             ## / CHANGE ME
@@ -92,7 +92,7 @@ def games_date(request):
             'title': 'Guess the Date Baby Maddock will be Born',
             'description': 'Select the date you think baby Maddock will enter the world.',
             'icons': ['fa-calendar'],
-            'color': 'purple'
+            'color': 'blue'
             ## / CHANGE ME
         }
     )
@@ -117,7 +117,7 @@ def games_date_guess(request):
             'title': 'Guess the Date Baby Maddock will be Born',
             'description': 'Select the date you think baby Maddock will enter the world.',
             'icons': ['fa-calendar'],
-            'color': 'purple'
+            'color': 'blue'
             ## / CHANGE ME
         }
     )
@@ -132,7 +132,7 @@ def games_weight(request):
         'games_weight.html',
         {
             'title': 'Guess the Weight',
-            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34), or in Pounds and Ounces.',
+            'description': 'Type your guess of Bubs birth weight in either Kilograms (eg. 3.34) or in Pounds and Ounces.',
             'icons': ['fa-balance-scale'],
             'form': form,
             'color': 'green'
@@ -155,7 +155,7 @@ def games_weight_guess(request):
         'games_weight.html',
         {
             'title': 'Guess the Weight',
-            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34), or in Pounds and Ounces.',
+            'description': 'Type your guess of bubs birth weight in either Kilograms (eg. 3.34) or in Pounds and Ounces.',
             'icons': ['fa-balance-scale'],
             'form': form,
             'color': 'green'
@@ -208,9 +208,9 @@ def advice(request):
             'form': form,
             ## CHANGE ME
             'title': 'Advice for the Parents to Be',
-            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and things the parents to be will have to look forward to.',
+            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and fun things the parents to be will have to look forward to.',
             'icons': ['fa-comment-o'],
-            'color': 'blue '
+            'color': 'green'
             ## / CHANGE ME
         }
     )
@@ -232,9 +232,9 @@ def advice_single(request, advice_id):
             'advice': advice,
             ## CHANGE ME
             'title': 'Advice for the Parents to Be',
-            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and things the parents to be will have to look forward to.',
+            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and fun things the parents to be will have to look forward to.',
             'icons': ['fa-comment-o'],
-            'color': 'blue '
+            'color': 'green'
             ## / CHANGE ME
         }
     )
@@ -257,10 +257,10 @@ def advice_new(request):
         {
             'form': form,
             ## CHANGE ME
-            'title': 'Leave a message for Baby Maddock',
-            'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
-            'icons': ['fa-smile-o'],
-            'color': 'purple'
+            'title': 'Advice for the Parents to Be',
+            'description': 'Send a message of positive advice, funny pregnancy/parenting stories, and fun things the parents to be will have to look forward to.',
+            'icons': ['fa-comment-o'],
+            'color': 'green'
             ## / CHANGE ME
         }
     )
@@ -272,7 +272,7 @@ def blog(request):
     'title': "Krystal and Leigh's Baby Update Blog",
     'description': 'Tune in here to get updates of Baby Maddock As Leigh and Krystal prepare to become Mum and Dad.',
     'icons': ['fa-heart-o'],
-    'color': 'purple'
+    'color': 'green'
     })
 
 ##---------------------------------CONTACT-----------------------------------------
@@ -282,7 +282,7 @@ def contact(request):
     'title': "Contact",
     'description': 'If you would like to contact the parents to be, or if you have any other questions.',
     'icons': ['fa-envelope-o'],
-    'color': 'purple'
+    'color': 'blue'
     })
 
 ##-------------------------------GIFT--------------------------------------------
@@ -290,9 +290,9 @@ def contact(request):
 def gift(request):
     return render(request,'gift.html',{
         'title': 'Gift Registry',
-        'description': 'If you would like to buy a gift for Baby Maddock. Here is a registry the parents to be have created with things they will need for their new bundle of joy.',
+        'description': 'If you would like to buy a gift for Baby Maddock, here is a registry the parents to be have created with things they will need for their new bundle of joy.',
         'icons': ['fa-gift'],
-        'color': 'blue'
+        'color': 'green'
     })
 
 ##----------------------------MESSAGE--------------------------------------------
@@ -308,7 +308,7 @@ def message(request):
             'message_list': message_list,
             'form': form,
             'title': 'Leave a message for Baby Maddock',
-            'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
+            'description': 'It could be a message of love, a poem, or just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
             'icons': ['fa-child'],
             'color': 'blue'
         }
@@ -333,7 +333,7 @@ def message_single(request, message_id):
             'form': form,
             'message': message,
             'title': 'Leave a message for Baby Maddock',
-            'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
+            'description': 'It could be a message of love, a poem, or just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
             'icons': ['fa-child'],
             'color': 'blue'
         }
@@ -357,7 +357,7 @@ def message_new(request, message_id=None):
         {
             'form': form,
             'title': 'Leave a message for Baby Maddock',
-            'description': 'It could be a message of love, a poem, just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
+            'description': 'It could be a message of love, a poem, or just something sweet that Leigh and Krystal can keep and read to Bubs as they grow up.',
             'icons': ['fa-child'],
             'color': 'blue'
         }
@@ -374,7 +374,7 @@ def games_eye(request):
         'form': form,
         ## CHANGE ME
         'title': 'Guess the Eye Colour',
-        'description': 'Click on the colour you think Bubs will have,  once you click the colour, your guess will be sent.',
+        'description': 'Click on the colour eyes you think Bubs will have at birth.',
         'icons': ['fa-eye'],
         'color': 'green'
         ## / CHANGE ME
@@ -401,7 +401,7 @@ def games_eye_guess(request):
             'form': form,
             ## CHANGE ME
             'title': 'Guess the Eye Colour',
-            'description': 'Click on the colour you think Bubs will have,  once you click the colour, your guess will be sent.',
+            'description': 'Click on the colour eyes you think Bubs will have at birth.',
             'icons': ['fa-eye'],
             'color': 'green'
             ## / CHANGE ME
@@ -419,7 +419,7 @@ def games_hair(request):
         'form': form,
         ## CHANGE ME
         'title': "Guess bub's Hair Colour ",
-        'description': 'Click on the colour hair you think bubs will be born with, once you have clicked the colour, your selection is made.',
+        'description': 'Click on the hair colour you think Bubs will have at birth.',
         'icons': ['fa-smile-o'],
         'color': 'blue'
         ## / CHANGE ME
@@ -446,7 +446,7 @@ def games_hair_guess(request):
             'form': form,
             ## CHANGE ME
             'title': "Guess bub's Hair Colour ",
-            'description': 'Click on the colour hair you think bubs will be born with, once you have clicked the colour, your selection is made.',
+            'description': 'Click on the hair colour you think Bubs will have at birth.',
             'icons': ['fa-smile-o'],
             'color': 'blue'
             ## / CHANGE ME
@@ -465,7 +465,7 @@ def games_parent(request):
         'form': form,
         ## CHANGE ME
         'title': 'Which parent will bubs look like more at birth?',
-        'description': 'Select the parent you think bubs will look like more when they are born, once you have clicked your selection, your guess is made.',
+        'description': 'Click the parent you think Bubs will look like the most at birth.',
         'color': 'green',
         'icons': ['fa-users'],
         ## / CHANGE ME
@@ -492,7 +492,7 @@ def games_parent_guess(request):
             'form': form,
             ## CHANGE ME
             'title': 'Which parent will bubs look like more at birth?',
-            'description': 'Select the parent you think bubs will look like more when they are born, once you have clicked your selection, your guess is made.',
+            'description': 'Click the parent you think Bubs will look like the most at birth.',
             'color': 'green',
             'icons': ['fa-users'],
             ## / CHANGE ME
