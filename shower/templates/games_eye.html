@@ -3,9 +3,9 @@
 {% block game_content %}
 
 <!---- blue ---->
-  <div class="row">
+<div class="row">
 
-    <div class=" col-md-4 col-xs-6" style="text-align: right">
+  <div class="col-md-offset-3 col-md-3 col-xs-6" style="text-align: right">
       <form action="{% url 'games_eye_guess' %}" name="blue" method="post">
         <a href="javascript:document.blue.submit()">
           <div class="guessbox">
@@ -25,7 +25,7 @@
     </div>
 
   <!-- Green-->
-    <div class="col-md-4 col-xs-6" style="text-align: left">
+    <div class="col-md-3 col-xs-6" style="text-align: left">
       <form action="{% url 'games_eye_guess' %}" name="green" method="post">
         <a href="javascript:document.green.submit()">
           <div class="guessbox">
@@ -43,11 +43,12 @@
       </a>
     </form>
     </div>
-
+  </div>
+<br>
 <!-- Brown-->
 
-
-  <div class="col-md-4 col-xs-6" style="text-align: left">
+<div class="row">
+  <div class="col-md-offset-3 col-md-3 col-xs-6" style="text-align: left">
       <form action="{% url 'games_eye_guess' %}" name="brown" method="post">
         <a href="javascript:document.brown.submit()">
           <div class="guessbox">
