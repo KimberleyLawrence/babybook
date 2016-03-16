@@ -6,7 +6,7 @@
   <p><label for="id_text"></label> <textarea cols="40" id="id_text" name="text" rows="10">
   </textarea></p>
   <p><label for="id_user"></label> <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
-  <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice">
+  <input type=submit class="btn btn-primary btn-lg" value="Send Your Message">
 </form>
 
 {% for message in message_list %}
@@ -29,7 +29,7 @@
       <p>
         <label for="id_user"></label>
         <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden" /></p>
-      <input type=submit class="btn btn-primary btn-lg" value="Send Your Advice">
+      <input type=submit class="btn btn-primary btn-lg" value="Send Your Message">
     </form>
     {% else %}
     <br>
