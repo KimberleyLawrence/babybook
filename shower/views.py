@@ -289,8 +289,8 @@ def contact(request):
 @login_required
 def gift(request):
     return render(request,'gift.html',{
-        'title': 'Gift Registry',
-        'description': 'If you would like to buy a gift for Baby Maddock, here is a registry the parents to be have created with things they will need for their new bundle of joy.',
+        'title': 'Gift Ideas',
+        'description': 'If you would like to buy a gift for Baby Maddock, the parents to be would really love some vouchers to put towards buying some of the larger items bubs will need, but appreciate any gifts they receive.',
         'icons': ['fa-gift'],
         'color': 'green'
     })
