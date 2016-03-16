@@ -290,7 +290,7 @@ def contact(request):
 def gift(request):
     return render(request,'gift.html',{
         'title': 'Gift Ideas',
-        'description': 'If you would like to buy a gift for the baby, but don’t know what would be best, Krystal and Leigh have suggested that vouchers would be handy. They will assist on getting some of the bigger items that will be needed to make baby comfortable.',
+        'description': 'If you would like to buy a gift for the baby, but do not know what would be best, Krystal and Leigh have suggested that vouchers would be handy. They will help to buy some of the bigger items that will be needed to make bubs comfortable.',
         'icons': ['fa-gift'],
         'color': 'green'
     })
