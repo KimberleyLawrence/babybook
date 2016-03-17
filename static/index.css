@@ -5,14 +5,8 @@
   font-family: 'Smoothie shoppe';
   src: url("/static/font/Smoothie Shoppe.ttf");
 }
-@font-face {
-  font-family: 'helvetica';
-  src: url("/static/font/helvetica.ttf");
-}
-@font-face{
-  font-family: 'kgalittleswag';
-  src: url("/static/font/KGALittleSwag.ttf");
-}
+
+
 
 p{
   margin:0;
