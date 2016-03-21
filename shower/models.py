@@ -8,7 +8,7 @@ class Advice(models.Model):
     user = models.ForeignKey(User )
 
     def __str__(self):
-        return self.text
+        return "%s wrote  %s" % (self.user, self.text)
 
     def text_area_rows(self):
         text_length = len(self.text)
@@ -19,7 +19,7 @@ class Message(models.Model):
     user = models.ForeignKey(User )
 
     def __str__(self):
-        return "%s guessed %s" % (self.user, self.guess)
+        return "%s wrote  %s" % (self.user, self.text)
 
 
 class Gender(models.Model):
