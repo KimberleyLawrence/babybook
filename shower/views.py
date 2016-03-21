@@ -89,7 +89,7 @@ def games_date(request):
         {
             'form': form,
             ## CHANGE ME
-            'title': 'Guess the Date Baby Maddock will be Born',
+            'title': 'Guess the Date',
             'description': 'Select the date you think baby Maddock will enter the world.',
             'icons': ['fa-calendar'],
             'color': 'blue'
@@ -114,7 +114,7 @@ def games_date_guess(request):
         {
             'form': form,
             ## CHANGE ME
-            'title': 'Guess the Date Baby Maddock will be Born',
+            'title': 'Guess the Date',
             'description': 'Select the date you think baby Maddock will enter the world.',
             'icons': ['fa-calendar'],
             'color': 'blue'
@@ -175,7 +175,7 @@ def games_time(request):
         {
             'form': form,
             ## CHANGE ME
-            'title': 'Guess the Time Baby Maddock will be Born',
+            'title': 'Guess the Time',
             'description': 'Use the arrows to select what time Baby Maddock with come into the world.',
             'icons': ['fa-clock-o'],
             'color': 'green'
@@ -290,7 +290,7 @@ def contact(request):
 def gift(request):
     return render(request,'gift.html',{
         'title': 'Gift Ideas',
-        'description': 'If you would like to buy a gift for the baby, but do not know what would be best, Krystal and Leigh have suggested that vouchers would be handy. They will help to buy some of the bigger items that will be needed to make bubs comfortable.',
+        'description': 'If you would like to buy a gift for the baby, but do not know what would be best, Krystal and Leigh have suggested that vouchers would be handy. They will help to buy some of the bigger items that will be needed to make bubs comfortable. Click below to purchase a gift card.',
         'icons': ['fa-gift'],
         'color': 'green'
     })
@@ -418,7 +418,7 @@ def games_hair(request):
         {
         'form': form,
         ## CHANGE ME
-        'title': "Guess bub's Hair Colour ",
+        'title': "Guess the Hair Colour ",
         'description': 'Click on the hair colour you think Bubs will have at birth.',
         'icons': ['fa-smile-o'],
         'color': 'blue'
@@ -445,7 +445,7 @@ def games_hair_guess(request):
         {
             'form': form,
             ## CHANGE ME
-            'title': "Guess bub's Hair Colour ",
+            'title': "Guess the Hair Colour ",
             'description': 'Click on the hair colour you think Bubs will have at birth.',
             'icons': ['fa-smile-o'],
             'color': 'blue'

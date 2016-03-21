@@ -1,10 +1,9 @@
 /* USE THIS FILE */
 
-
-@font-face {
-  font-family: 'Smoothie shoppe';
+/*@font-face {
+  font-family: ''Clicker Script', cursive;';
   src: url("/static/font/Smoothie Shoppe.ttf");
-}
+}*/
 
 
 
@@ -15,13 +14,13 @@ body{
   background-color:#ffffcc;
 }
 .header{
-  font-family: sans-serif;
+  font-family: 'Bubblegum Sans', sans-serif;
   font-size: 1em;
 }
 
 .login_sub{
-  font-family: sans-serif;
-  font-size: 2em;
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1.2em;
   text-align: center;
 }
 .alert-success{
@@ -108,13 +107,13 @@ a:hover, a:visited, a:link, a:active{
   color:black;
 }
 .other_gifts{
-  font-family: smoothie shoppe;
+  font-family: 'Ribeye', cursive;
   font-size: 2em;
   color:#b266ff;
   text-align: center;
 }
 .other_gift_list{
-  font-family: sans-serif;
+  font-family: 'Bubblegum Sans', sans-serif;
   font-size: 1em;
   color:#737373;
   text-align: center;
@@ -122,19 +121,19 @@ a:hover, a:visited, a:link, a:active{
 
 .welcome, .intro{
   text-align: center;
-  font-family: sans-serif;
-  font-size: 1em;
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1.2em;
   color:#737373;
 
 
 }
 
 .title{
-  font-family: smoothie shoppe;
-  font-size: 4em;
+  font-family: 'Ribeye', cursive;
+  font-size: 3em;
   text-align: center;
   margin-top: 10px;
-  letter-spacing: -3px;
+  /*letter-spacing: -3px;*/
 }
 
 .purple{
@@ -155,7 +154,7 @@ textarea{
   border: solid 2px;
 }
 .title_banner{
-  font-family: sans-serif;
+  font-family: 'Bubblegum Sans', sans-serif;;
   font-size: .75em;
 }
 input[type=number]::-webkit-inner-spin-button,
@@ -166,15 +165,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .sub_title{
-  font-family: smoothie shoppe;
+  font-family: 'Ribeye', cursive;;
   font-size:4em;
   text-align: center;
-  letter-spacing: -3px;
+  /*letter-spacing: -3px;*/
 
 }
 
 .sub{
-  font-family: sans-serif;
+  font-family: 'Bubblegum Sans', sans-serif;
   font-size: 1.5em;
   text-align: center;
   color: #999999;
@@ -212,8 +211,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .game_title{
   margin-top:30px;
-  font-family: sans-serif;
-  font-size: 1em;
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1.2em;
   color: #737373;
 }
 
@@ -302,8 +301,8 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 10px;
 }
 .guess{
-  font-family: sans-serif;
-  font-size: 1em;
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1.2em;
 }
 
 .guessbox {
