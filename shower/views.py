@@ -269,7 +269,7 @@ def advice_new(request):
 @login_required
 def blog(request):
     return render(request,'blog.html',{
-    'title': "Krystal and Leigh's Baby Update Blog",
+    'title': "Krystal and Leigh's Baby Blog",
     'description': 'Tune in here to get updates of Baby Maddock As Leigh and Krystal prepare to become Mum and Dad.',
     'icons': ['fa-heart-o'],
     'color': 'green'
