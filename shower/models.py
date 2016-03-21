@@ -19,7 +19,7 @@ class Message(models.Model):
     user = models.ForeignKey(User )
 
     def __str__(self):
-        return self.text
+        return "%s guessed %s" % (self.user, self.guess)
 
 
 class Gender(models.Model):
@@ -27,28 +27,28 @@ class Gender(models.Model):
     user = models.OneToOneField(User)
 
     def __str__(self):
-        return self.guess
+        return "%s guessed %s" % (self.user, self.guess)
 
 class Eye(models.Model):
     guess = models.CharField(max_length=6)
     user = models.OneToOneField(User)
 
     def __str__(self):
-        return self.guess
+        return "%s guessed %s" % (self.user, self.guess)
 
 class Hair(models.Model):
     guess = models.CharField(max_length=6)
     user = models.OneToOneField(User)
 
     def __str__(self):
-        return self.guess
+        return "%s guessed %s" % (self.user, self.guess)
 
 class Parent(models.Model):
     guess = models.CharField(max_length=7)
     user = models.OneToOneField(User)
 
     def __str__(self):
-        return self.guess
+        return "%s guessed %s" % (self.user, self.guess)
 
 class Weight(models.Model):
     guess = models.DecimalField(decimal_places=2, max_digits=4, default=0)
@@ -63,7 +63,7 @@ class Date(models.Model):
     user = models.OneToOneField(User)
 
     def __str__(self):
-        return '{}'.format(self.guess)
+        return "%s guessed %s" % (self.user, self.guess)
 
 
 class Time(models.Model):
@@ -71,4 +71,4 @@ class Time(models.Model):
     user = models.OneToOneField(User)
 
     def __str__(self):
-        return '{}'.format(self.guess)
+        return "%s guessed %s" % (self.user, self.guess)
