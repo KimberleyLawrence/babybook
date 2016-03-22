@@ -3,13 +3,13 @@
 {% block game_content %}
 
     <form action="{% url 'games_weight_guess' %}" method="post">
-    <input class="input-lg metric" id="kg" name="guess" value="{{ form.guess.value }}" maxlength="4" type="number" step="0.01" > <strong>kg</strong>
+    <input class="input-lg metric" id="kg" name="guess" value="{{ form.guess.value }}" maxlength="4" type="tel" step="0.01" > <strong>kg</strong>
 
 <br></br>
 
 
-    <input class="imperial input-lg" id="lb" value="0" maxlength=2 type="number" step="1"> <strong>lb</strong>
-    <input class="imperial input-lg" id="oz" value="0" maxlength=2 type="number" step="1"> oz
+    <input class="imperial input-lg" id="lb" value="0" maxlength=2 type="tel" step="1"> <strong>lb</strong>
+    <input class="imperial input-lg" id="oz" value="0" maxlength=2 type="tel" step="1"> oz
 
       {% csrf_token %}
       <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
