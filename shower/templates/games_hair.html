@@ -66,7 +66,7 @@
       </a>
     </form>
     </div>
-<!---black ----->
+<!---no hair ----->
 <div class="col-md-3 col-xs-6" style="text-align: left">
     <form action="{% url 'games_hair_guess' %}" name="nohair" method="post">
       <a href="javascript:document.nohair.submit()">
@@ -85,6 +85,30 @@
     </a>
   </form>
   </div>
+</div>
+<br>
+  <!---black ----->
+
+<div class="row">
+
+  <div class="col-md-offset-3 col-md-3 col-xs-6" style="text-align: right">
+    <form action="{% url 'games_hair_guess' %}" name="black" method="post">
+      <a href="javascript:document.black.submit()">
+        <div class="guessbox">
+
+
+          <i class="fa fa-circle fa-5x" id="black"></i>
+          <div class="game_title">Black</div>
+
+          {% csrf_token %}
+          <input id="id_guess" maxlength="6" name="guess" value="black" type="hidden">
+          <input id="id_user" maxlength="50" name="user" value="{{ request.user.id }}" type="hidden">
+
+
+      </div>
+    </a>
+  </form>
+</div>
 
 
   </div>
