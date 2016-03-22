@@ -464,7 +464,7 @@ def games_parent(request):
         {
         'form': form,
         ## CHANGE ME
-        'title': 'Which parent will bubs look like more at birth?',
+        'title': 'Which parent will bubs look like more?',
         'description': 'Click the parent you think Bubs will look like the most at birth.',
         'color': 'green',
         'icons': ['fa-users'],
