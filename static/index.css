@@ -139,10 +139,10 @@ a:hover, a:visited, a:link, a:active{
 /*
  * Login for non facebook users
  * START
- */ 
+ */
 .login{
-  font-family: 'Ribeye', cursive;
-  font-size: 1.5em;
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1em;
   text-align: center;
   margin-top: 60px;
   padding-top: 70px;
@@ -169,7 +169,7 @@ a:hover, a:visited, a:link, a:active{
 /*
  * Login for non facebook users
  * END
- */ 
+ */
 
 .purple{
   color: #b266ff;
