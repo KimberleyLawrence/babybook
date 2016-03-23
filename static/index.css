@@ -136,6 +136,41 @@ a:hover, a:visited, a:link, a:active{
   /*letter-spacing: -3px;*/
 }
 
+/*
+ * Login for non facebook users
+ * START
+ */ 
+.login{
+  font-family: 'Ribeye', cursive;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 70px;
+  border-top: 1px solid #ddd;
+}
+
+.login .subtitle {
+    color: #b266ff;
+}
+
+.login label {
+    color: #333;
+    font-size: 1em;
+}
+
+.login .form-control {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.login .btn {
+    border: 2px solid #ccc;
+}
+/*
+ * Login for non facebook users
+ * END
+ */ 
+
 .purple{
   color: #b266ff;
 }
