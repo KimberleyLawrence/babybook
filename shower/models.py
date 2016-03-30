@@ -1,8 +1,9 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.encoding import python_2_unicode_compatible
 
-
+@python_2_unicode_compatible
 class Advice(models.Model):
     text = models.TextField()
     user = models.ForeignKey(User )
@@ -14,6 +15,7 @@ class Advice(models.Model):
         text_length = len(self.text)
         return (text_length / 40) + 3
 
+@python_2_unicode_compatible
 class Message(models.Model):
     text = models.TextField()
     user = models.ForeignKey(User )
